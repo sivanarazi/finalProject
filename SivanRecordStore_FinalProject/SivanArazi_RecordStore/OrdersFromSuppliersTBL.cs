@@ -15,10 +15,12 @@ namespace SivanArazi_RecordStore
     public partial class OrdersFromSuppliersTBL
     {
         public int Id { get; set; }
-        public int Details { get; set; }
-        public int Type { get; set; }
+        public int Supplier { get; set; }
+        public string Date { get; set; }
+        public int Cost { get; set; }
+        public int OrderType { get; set; }
     
-        public virtual OrderDetailsTBL OrderDetailsTBL { get; set; }
         public virtual OrderTypeTBL OrderTypeTBL { get; set; }
+        public virtual SupplierTBL SupplierTBL { get; set; }
     }
 }

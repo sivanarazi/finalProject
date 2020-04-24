@@ -40,7 +40,7 @@ namespace SivanArazi_RecordStore
             };
             db.EmployeesTBL.Add(a);
             db.SaveChanges();
-            MainWindow w = new MainWindow();
+            EmployeesWin w = new EmployeesWin();
             w.Show();
             this.Close();
         }

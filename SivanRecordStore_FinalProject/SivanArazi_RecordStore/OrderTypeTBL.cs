@@ -17,19 +17,16 @@ namespace SivanArazi_RecordStore
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public OrderTypeTBL()
         {
-            this.DealsTBL = new HashSet<DealsTBL>();
             this.OrdersFromSuppliersTBL = new HashSet<OrdersFromSuppliersTBL>();
         }
     
         public int Id { get; set; }
-        public Nullable<int> Disks { get; set; }
-        public Nullable<int> Records { get; set; }
-        public Nullable<int> Castes { get; set; }
-        public Nullable<int> Turntables { get; set; }
+        public Nullable<int> Album { get; set; }
+        public Nullable<int> Type { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DealsTBL> DealsTBL { get; set; }
+        public virtual AlbumTBL AlbumTBL { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OrdersFromSuppliersTBL> OrdersFromSuppliersTBL { get; set; }
+        public virtual TypeTBL TypeTBL { get; set; }
     }
 }

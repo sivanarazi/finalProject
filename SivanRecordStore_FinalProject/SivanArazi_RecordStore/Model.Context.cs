@@ -25,13 +25,16 @@ namespace SivanArazi_RecordStore
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<CoustomerTBL> CoustomerTBL { get; set; }
+        public virtual DbSet<AlbumTBL> AlbumTBL { get; set; }
         public virtual DbSet<CurrentExpensesTBL> CurrentExpensesTBL { get; set; }
+        public virtual DbSet<CustomerTBL> CustomerTBL { get; set; }
         public virtual DbSet<DealsTBL> DealsTBL { get; set; }
         public virtual DbSet<EmployeesTBL> EmployeesTBL { get; set; }
-        public virtual DbSet<OrderDetailsTBL> OrderDetailsTBL { get; set; }
         public virtual DbSet<OrdersFromSuppliersTBL> OrdersFromSuppliersTBL { get; set; }
         public virtual DbSet<OrderTypeTBL> OrderTypeTBL { get; set; }
         public virtual DbSet<ShippingTBL> ShippingTBL { get; set; }
+        public virtual DbSet<StockTBL> StockTBL { get; set; }
+        public virtual DbSet<SupplierTBL> SupplierTBL { get; set; }
+        public virtual DbSet<TypeTBL> TypeTBL { get; set; }
     }
 }

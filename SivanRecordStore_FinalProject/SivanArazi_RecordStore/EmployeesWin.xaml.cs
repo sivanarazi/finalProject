@@ -41,5 +41,12 @@ namespace SivanArazi_RecordStore
         {
             return db.EmployeesTBL.ToList<EmployeesTBL>();
         }
+
+        private void Exit(object sender, RoutedEventArgs e)
+        {
+            MainWindow w = new MainWindow();
+            w.Show();
+            this.Close();
+        }
     }
 }

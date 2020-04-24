@@ -15,9 +15,9 @@ namespace SivanArazi_RecordStore
     public partial class ShippingTBL
     {
         public int Id { get; set; }
-        public string Coustomer { get; set; }
-        public string Address { get; set; }
+        public Nullable<int> Deal { get; set; }
+        public Nullable<int> ShipCost { get; set; }
     
-        public virtual CoustomerTBL CoustomerTBL { get; set; }
+        public virtual DealsTBL DealsTBL { get; set; }
     }
 }

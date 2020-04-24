@@ -14,15 +14,21 @@ namespace SivanArazi_RecordStore
     
     public partial class DealsTBL
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public DealsTBL()
+        {
+            this.ShippingTBL = new HashSet<ShippingTBL>();
+        }
+    
         public int Id { get; set; }
-        public string Coustomer { get; set; }
-        public string Employee { get; set; }
+        public Nullable<int> Customer { get; set; }
+        public int Employee { get; set; }
         public int Cost { get; set; }
         public int Type { get; set; }
-        public Nullable<int> Shipping { get; set; }
     
-        public virtual CoustomerTBL CoustomerTBL { get; set; }
+        public virtual CustomerTBL CustomerTBL { get; set; }
         public virtual EmployeesTBL EmployeesTBL { get; set; }
-        public virtual OrderTypeTBL OrderTypeTBL { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ShippingTBL> ShippingTBL { get; set; }
     }
 }

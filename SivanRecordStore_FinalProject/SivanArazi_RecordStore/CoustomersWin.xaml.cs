@@ -33,9 +33,16 @@ namespace SivanArazi_RecordStore
             this.Close();
         }
 
-        public List<CoustomerTBL> getCoustomers()
+        private void Exit(object sender, RoutedEventArgs e)
         {
-            return db.CoustomerTBL.ToList<CoustomerTBL>();
+            MainWindow w = new MainWindow();
+            w.Show();
+            this.Close();
+        }
+
+        public List<CustomerTBL> getCoustomers()
+        {
+            return db.CustomerTBL.ToList<CustomerTBL>();
         }
     }
 }

@@ -79,13 +79,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AlbumTBL.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="CurrentExpensesTBL.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerTBL.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="DealsTBL.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="OrderDetailsTBL.cs">
+    <Compile Include="EmployeesTBL.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="OrdersFromSuppliersTBL.cs">
@@ -97,8 +103,17 @@
     <Compile Include="ShippingTBL.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="StockTBL.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="StockWin.xaml.cs">
       <DependentUpon>StockWin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SupplierTBL.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TypeTBL.cs">
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Page Include="AddCoustomerWin.xaml">
       <SubType>Designer</SubType>
@@ -132,12 +147,6 @@
     </Compile>
     <Compile Include="CoustomersWin.xaml.cs">
       <DependentUpon>CoustomersWin.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="CoustomerTBL.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EmployeesTBL.cs">
-      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="EmployeesWin.xaml.cs">
       <DependentUpon>EmployeesWin.xaml</DependentUpon>

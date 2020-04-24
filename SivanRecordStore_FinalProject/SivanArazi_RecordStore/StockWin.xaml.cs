@@ -19,9 +19,23 @@ namespace SivanArazi_RecordStore
     /// </summary>
     public partial class StockWin : Window
     {
+        DataBaseEntities db = new DataBaseEntities();
         public StockWin()
         {
             InitializeComponent();
+            ShowStockInfo();
+        }
+
+        private void ShowStockInfo()
+        {
+            
+        }
+
+        private void Exit(object sender, RoutedEventArgs e)
+        {
+            MainWindow w = new MainWindow();
+            w.Show();
+            this.Close();
         }
     }
 }

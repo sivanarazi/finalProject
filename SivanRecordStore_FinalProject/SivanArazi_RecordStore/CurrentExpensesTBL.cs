@@ -19,5 +19,8 @@ namespace SivanArazi_RecordStore
         public string Need { get; set; }
         public string Date { get; set; }
         public int Cost { get; set; }
+        public Nullable<int> Employee { get; set; }
+    
+        public virtual EmployeesTBL EmployeesTBL { get; set; }
     }
 }

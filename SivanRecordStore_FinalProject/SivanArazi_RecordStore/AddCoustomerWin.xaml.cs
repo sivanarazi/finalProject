@@ -31,16 +31,16 @@ namespace SivanArazi_RecordStore
             string phoneS = tb_phone.Text;
             string emailS = tb_email.Text;
             string addressS = tb_address.Text;
-            CoustomerTBL a = new CoustomerTBL
+            CustomerTBL a = new CustomerTBL
             {
                 Name = nameS,
                 Phone = phoneS,
                 Email = emailS,
-                Addrerss = addressS,
+                Address = addressS,
             };
-            db.CoustomerTBL.Add(a);
+            db.CustomerTBL.Add(a);
             db.SaveChanges();
-            MainWindow w = new MainWindow();
+            CoustomersWin w = new CoustomersWin();
             w.Show();
             this.Close();
         }

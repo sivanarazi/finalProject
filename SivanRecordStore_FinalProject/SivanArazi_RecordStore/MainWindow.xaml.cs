@@ -20,9 +20,11 @@ namespace SivanArazi_RecordStore
     /// </summary>
     public partial class MainWindow : Window
     {
+        DataBaseEntities db = new DataBaseEntities();
         public MainWindow()
         {
             InitializeComponent();
+            //CreateStock();
         }
 
         private void GoToEmployeesWin(object sender, RoutedEventArgs e)
@@ -40,6 +42,13 @@ namespace SivanArazi_RecordStore
         }
 
         private void GoToStockWin(object sender, RoutedEventArgs e)
+        {
+            StockWin w = new StockWin();
+            w.Show();
+            this.Close();
+        }
+
+        private void CreateStock()
         {
             
         }
