@@ -11,8 +11,10 @@
           </Key>
           <Property Name="Id" Type="int" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Artist" Type="nvarchar" MaxLength="150" />
           <Property Name="SongsNumber" Type="int" />
-          <Property Name="Date" Type="nvarchar" MaxLength="50" />
+          <Property Name="Year" Type="nvarchar" MaxLength="50" />
+          <Property Name="Type" Type="int" />
         </EntityType>
         <EntityType Name="CurrentExpensesTBL">
           <Key>
@@ -20,7 +22,7 @@
           </Key>
           <Property Name="Id" Type="int" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="Need" Type="nvarchar" MaxLength="100" />
+          <Property Name="Need" Type="nvarchar" MaxLength="200" />
           <Property Name="Date" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Cost" Type="int" Nullable="false" />
           <Property Name="Employee" Type="int" />
@@ -30,30 +32,31 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" Nullable="false" />
-          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="Phone" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Email" Type="nvarchar" MaxLength="50" />
-          <Property Name="Address" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="100" />
+          <Property Name="Address" Type="nvarchar" MaxLength="250" />
+          <Property Name="OrdersNumber" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="DealsTBL">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" Nullable="false" />
-          <Property Name="Customer" Type="int" />
+          <Property Name="Customer" Type="int" Nullable="false" />
           <Property Name="Employee" Type="int" Nullable="false" />
           <Property Name="Cost" Type="int" Nullable="false" />
-          <Property Name="Type" Type="int" Nullable="false" />
+          <Property Name="Album" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="EmployeesTBL">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" Nullable="false" />
-          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="Phone" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Email" Type="nvarchar" MaxLength="50" />
-          <Property Name="Address" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="100" />
+          <Property Name="Address" Type="nvarchar" MaxLength="200" />
         </EntityType>
         <EntityType Name="OrdersFromSuppliersTBL">
           <Key>
@@ -61,17 +64,12 @@
           </Key>
           <Property Name="Id" Type="int" Nullable="false" />
           <Property Name="Supplier" Type="int" Nullable="false" />
-          <Property Name="Date" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Employee" Type="int" Nullable="false" />
+          <Property Name="Month" Type="int" Nullable="false" />
+          <Property Name="Year" Type="int" Nullable="false" />
           <Property Name="Cost" Type="int" Nullable="false" />
-          <Property Name="OrderType" Type="int" Nullable="false" />
-        </EntityType>
-        <EntityType Name="OrderTypeTBL">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
-          <Property Name="Album" Type="int" />
-          <Property Name="Type" Type="int" />
+          <Property Name="Album" Type="int" Nullable="false" />
+          <Property Name="Amount" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="ShippingTBL">
           <Key>
@@ -80,6 +78,7 @@
           <Property Name="Id" Type="int" Nullable="false" />
           <Property Name="Deal" Type="int" />
           <Property Name="ShipCost" Type="int" />
+          <Property Name="Address" Type="nvarchar" MaxLength="200" />
         </EntityType>
         <EntityType Name="StockTBL">
           <Key>
@@ -87,62 +86,20 @@
           </Key>
           <Property Name="Id" Type="int" Nullable="false" />
           <Property Name="Album" Type="int" />
-          <Property Name="Type" Type="int" />
+          <Property Name="Amount" Type="int" />
         </EntityType>
         <EntityType Name="SupplierTBL">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" Nullable="false" />
-          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="50" />
+          <Property Name="Address" Type="nvarchar" MaxLength="200" />
+          <Property Name="Email" Type="nvarchar" MaxLength="100" />
           <Property Name="OrdersAmount" Type="int" />
         </EntityType>
-        <EntityType Name="TypeTBL">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
-          <Property Name="Disk" Type="int" />
-          <Property Name="Record" Type="int" />
-          <Property Name="Cassette" Type="int" />
-        </EntityType>
-        <Association Name="AlbumOrderTypeFK">
-          <End Role="AlbumTBL" Type="Self.AlbumTBL" Multiplicity="0..1" />
-          <End Role="OrderTypeTBL" Type="Self.OrderTypeTBL" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AlbumTBL">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="OrderTypeTBL">
-              <PropertyRef Name="Album" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="AlbumStockFK">
-          <End Role="AlbumTBL" Type="Self.AlbumTBL" Multiplicity="0..1" />
-          <End Role="StockTBL" Type="Self.StockTBL" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AlbumTBL">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="StockTBL">
-              <PropertyRef Name="Album" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="CustomerDealsFK">
-          <End Role="CustomerTBL" Type="Self.CustomerTBL" Multiplicity="0..1" />
-          <End Role="DealsTBL" Type="Self.DealsTBL" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CustomerTBL">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="DealsTBL">
-              <PropertyRef Name="Customer" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="EmployeeCurrentExpensesFK">
+        <Association Name="FK_CurrentExpensesEmployees">
           <End Role="EmployeesTBL" Type="Self.EmployeesTBL" Multiplicity="0..1" />
           <End Role="CurrentExpensesTBL" Type="Self.CurrentExpensesTBL" Multiplicity="*" />
           <ReferentialConstraint>
@@ -154,7 +111,31 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="EmployeeDealsFK">
+        <Association Name="FK_DealsAlbum">
+          <End Role="AlbumTBL" Type="Self.AlbumTBL" Multiplicity="1" />
+          <End Role="DealsTBL" Type="Self.DealsTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AlbumTBL">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DealsTBL">
+              <PropertyRef Name="Album" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DealsCustomer">
+          <End Role="CustomerTBL" Type="Self.CustomerTBL" Multiplicity="1" />
+          <End Role="DealsTBL" Type="Self.DealsTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CustomerTBL">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DealsTBL">
+              <PropertyRef Name="Customer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DealsEmployee">
           <End Role="EmployeesTBL" Type="Self.EmployeesTBL" Multiplicity="1" />
           <End Role="DealsTBL" Type="Self.DealsTBL" Multiplicity="*" />
           <ReferentialConstraint>
@@ -166,31 +147,31 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="OrderTypeOrderSupplierFK">
-          <End Role="OrderTypeTBL" Type="Self.OrderTypeTBL" Multiplicity="1" />
+        <Association Name="FK_OrderSupplierAlbum">
+          <End Role="AlbumTBL" Type="Self.AlbumTBL" Multiplicity="1" />
           <End Role="OrdersFromSuppliersTBL" Type="Self.OrdersFromSuppliersTBL" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="OrderTypeTBL">
+            <Principal Role="AlbumTBL">
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="OrdersFromSuppliersTBL">
-              <PropertyRef Name="OrderType" />
+              <PropertyRef Name="Album" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="ShipDealFK">
-          <End Role="DealsTBL" Type="Self.DealsTBL" Multiplicity="0..1" />
-          <End Role="ShippingTBL" Type="Self.ShippingTBL" Multiplicity="*" />
+        <Association Name="FK_OrderSupplierEmployees">
+          <End Role="EmployeesTBL" Type="Self.EmployeesTBL" Multiplicity="1" />
+          <End Role="OrdersFromSuppliersTBL" Type="Self.OrdersFromSuppliersTBL" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="DealsTBL">
+            <Principal Role="EmployeesTBL">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="ShippingTBL">
-              <PropertyRef Name="ShipCost" />
+            <Dependent Role="OrdersFromSuppliersTBL">
+              <PropertyRef Name="Employee" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="SupplierOrderFK">
+        <Association Name="FK_OrderSupplierSuppliers">
           <End Role="SupplierTBL" Type="Self.SupplierTBL" Multiplicity="1" />
           <End Role="OrdersFromSuppliersTBL" Type="Self.OrdersFromSuppliersTBL" Multiplicity="*" />
           <ReferentialConstraint>
@@ -202,27 +183,27 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="TypeOrderTypeFK">
-          <End Role="TypeTBL" Type="Self.TypeTBL" Multiplicity="0..1" />
-          <End Role="OrderTypeTBL" Type="Self.OrderTypeTBL" Multiplicity="*" />
+        <Association Name="FK_ShippingDeals">
+          <End Role="DealsTBL" Type="Self.DealsTBL" Multiplicity="0..1" />
+          <End Role="ShippingTBL" Type="Self.ShippingTBL" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="TypeTBL">
+            <Principal Role="DealsTBL">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="OrderTypeTBL">
-              <PropertyRef Name="Type" />
+            <Dependent Role="ShippingTBL">
+              <PropertyRef Name="ShipCost" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="TypeStockFK">
-          <End Role="TypeTBL" Type="Self.TypeTBL" Multiplicity="0..1" />
+        <Association Name="FK_StockAlbum">
+          <End Role="AlbumTBL" Type="Self.AlbumTBL" Multiplicity="0..1" />
           <End Role="StockTBL" Type="Self.StockTBL" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="TypeTBL">
+            <Principal Role="AlbumTBL">
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="StockTBL">
-              <PropertyRef Name="Type" />
+              <PropertyRef Name="Album" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -233,49 +214,43 @@
           <EntitySet Name="DealsTBL" EntityType="Self.DealsTBL" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EmployeesTBL" EntityType="Self.EmployeesTBL" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="OrdersFromSuppliersTBL" EntityType="Self.OrdersFromSuppliersTBL" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="OrderTypeTBL" EntityType="Self.OrderTypeTBL" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ShippingTBL" EntityType="Self.ShippingTBL" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="StockTBL" EntityType="Self.StockTBL" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SupplierTBL" EntityType="Self.SupplierTBL" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="TypeTBL" EntityType="Self.TypeTBL" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="AlbumOrderTypeFK" Association="Self.AlbumOrderTypeFK">
-            <End Role="AlbumTBL" EntitySet="AlbumTBL" />
-            <End Role="OrderTypeTBL" EntitySet="OrderTypeTBL" />
-          </AssociationSet>
-          <AssociationSet Name="AlbumStockFK" Association="Self.AlbumStockFK">
-            <End Role="AlbumTBL" EntitySet="AlbumTBL" />
-            <End Role="StockTBL" EntitySet="StockTBL" />
-          </AssociationSet>
-          <AssociationSet Name="CustomerDealsFK" Association="Self.CustomerDealsFK">
-            <End Role="CustomerTBL" EntitySet="CustomerTBL" />
-            <End Role="DealsTBL" EntitySet="DealsTBL" />
-          </AssociationSet>
-          <AssociationSet Name="EmployeeCurrentExpensesFK" Association="Self.EmployeeCurrentExpensesFK">
+          <AssociationSet Name="FK_CurrentExpensesEmployees" Association="Self.FK_CurrentExpensesEmployees">
             <End Role="EmployeesTBL" EntitySet="EmployeesTBL" />
             <End Role="CurrentExpensesTBL" EntitySet="CurrentExpensesTBL" />
           </AssociationSet>
-          <AssociationSet Name="EmployeeDealsFK" Association="Self.EmployeeDealsFK">
+          <AssociationSet Name="FK_DealsAlbum" Association="Self.FK_DealsAlbum">
+            <End Role="AlbumTBL" EntitySet="AlbumTBL" />
+            <End Role="DealsTBL" EntitySet="DealsTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DealsCustomer" Association="Self.FK_DealsCustomer">
+            <End Role="CustomerTBL" EntitySet="CustomerTBL" />
+            <End Role="DealsTBL" EntitySet="DealsTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DealsEmployee" Association="Self.FK_DealsEmployee">
             <End Role="EmployeesTBL" EntitySet="EmployeesTBL" />
             <End Role="DealsTBL" EntitySet="DealsTBL" />
           </AssociationSet>
-          <AssociationSet Name="OrderTypeOrderSupplierFK" Association="Self.OrderTypeOrderSupplierFK">
-            <End Role="OrderTypeTBL" EntitySet="OrderTypeTBL" />
+          <AssociationSet Name="FK_OrderSupplierAlbum" Association="Self.FK_OrderSupplierAlbum">
+            <End Role="AlbumTBL" EntitySet="AlbumTBL" />
             <End Role="OrdersFromSuppliersTBL" EntitySet="OrdersFromSuppliersTBL" />
           </AssociationSet>
-          <AssociationSet Name="ShipDealFK" Association="Self.ShipDealFK">
-            <End Role="DealsTBL" EntitySet="DealsTBL" />
-            <End Role="ShippingTBL" EntitySet="ShippingTBL" />
+          <AssociationSet Name="FK_OrderSupplierEmployees" Association="Self.FK_OrderSupplierEmployees">
+            <End Role="EmployeesTBL" EntitySet="EmployeesTBL" />
+            <End Role="OrdersFromSuppliersTBL" EntitySet="OrdersFromSuppliersTBL" />
           </AssociationSet>
-          <AssociationSet Name="SupplierOrderFK" Association="Self.SupplierOrderFK">
+          <AssociationSet Name="FK_OrderSupplierSuppliers" Association="Self.FK_OrderSupplierSuppliers">
             <End Role="SupplierTBL" EntitySet="SupplierTBL" />
             <End Role="OrdersFromSuppliersTBL" EntitySet="OrdersFromSuppliersTBL" />
           </AssociationSet>
-          <AssociationSet Name="TypeOrderTypeFK" Association="Self.TypeOrderTypeFK">
-            <End Role="TypeTBL" EntitySet="TypeTBL" />
-            <End Role="OrderTypeTBL" EntitySet="OrderTypeTBL" />
+          <AssociationSet Name="FK_ShippingDeals" Association="Self.FK_ShippingDeals">
+            <End Role="DealsTBL" EntitySet="DealsTBL" />
+            <End Role="ShippingTBL" EntitySet="ShippingTBL" />
           </AssociationSet>
-          <AssociationSet Name="TypeStockFK" Association="Self.TypeStockFK">
-            <End Role="TypeTBL" EntitySet="TypeTBL" />
+          <AssociationSet Name="FK_StockAlbum" Association="Self.FK_StockAlbum">
+            <End Role="AlbumTBL" EntitySet="AlbumTBL" />
             <End Role="StockTBL" EntitySet="StockTBL" />
           </AssociationSet>
         </EntityContainer>
@@ -290,50 +265,44 @@
           <EntitySet Name="DealsTBL" EntityType="DataBaseModel.DealsTBL" />
           <EntitySet Name="EmployeesTBL" EntityType="DataBaseModel.EmployeesTBL" />
           <EntitySet Name="OrdersFromSuppliersTBL" EntityType="DataBaseModel.OrdersFromSuppliersTBL" />
-          <EntitySet Name="OrderTypeTBL" EntityType="DataBaseModel.OrderTypeTBL" />
           <EntitySet Name="ShippingTBL" EntityType="DataBaseModel.ShippingTBL" />
           <EntitySet Name="StockTBL" EntityType="DataBaseModel.StockTBL" />
           <EntitySet Name="SupplierTBL" EntityType="DataBaseModel.SupplierTBL" />
-          <EntitySet Name="TypeTBL" EntityType="DataBaseModel.TypeTBL" />
-          <AssociationSet Name="AlbumOrderTypeFK" Association="DataBaseModel.AlbumOrderTypeFK">
+          <AssociationSet Name="FK_DealsAlbum" Association="DataBaseModel.FK_DealsAlbum">
             <End Role="AlbumTBL" EntitySet="AlbumTBL" />
-            <End Role="OrderTypeTBL" EntitySet="OrderTypeTBL" />
+            <End Role="DealsTBL" EntitySet="DealsTBL" />
           </AssociationSet>
-          <AssociationSet Name="AlbumStockFK" Association="DataBaseModel.AlbumStockFK">
+          <AssociationSet Name="FK_OrderSupplierAlbum" Association="DataBaseModel.FK_OrderSupplierAlbum">
+            <End Role="AlbumTBL" EntitySet="AlbumTBL" />
+            <End Role="OrdersFromSuppliersTBL" EntitySet="OrdersFromSuppliersTBL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StockAlbum" Association="DataBaseModel.FK_StockAlbum">
             <End Role="AlbumTBL" EntitySet="AlbumTBL" />
             <End Role="StockTBL" EntitySet="StockTBL" />
           </AssociationSet>
-          <AssociationSet Name="EmployeeCurrentExpensesFK" Association="DataBaseModel.EmployeeCurrentExpensesFK">
+          <AssociationSet Name="FK_CurrentExpensesEmployees" Association="DataBaseModel.FK_CurrentExpensesEmployees">
             <End Role="EmployeesTBL" EntitySet="EmployeesTBL" />
             <End Role="CurrentExpensesTBL" EntitySet="CurrentExpensesTBL" />
           </AssociationSet>
-          <AssociationSet Name="CustomerDealsFK" Association="DataBaseModel.CustomerDealsFK">
+          <AssociationSet Name="FK_DealsCustomer" Association="DataBaseModel.FK_DealsCustomer">
             <End Role="CustomerTBL" EntitySet="CustomerTBL" />
             <End Role="DealsTBL" EntitySet="DealsTBL" />
           </AssociationSet>
-          <AssociationSet Name="EmployeeDealsFK" Association="DataBaseModel.EmployeeDealsFK">
+          <AssociationSet Name="FK_DealsEmployee" Association="DataBaseModel.FK_DealsEmployee">
             <End Role="EmployeesTBL" EntitySet="EmployeesTBL" />
             <End Role="DealsTBL" EntitySet="DealsTBL" />
           </AssociationSet>
-          <AssociationSet Name="ShipDealFK" Association="DataBaseModel.ShipDealFK">
+          <AssociationSet Name="FK_ShippingDeals" Association="DataBaseModel.FK_ShippingDeals">
             <End Role="DealsTBL" EntitySet="DealsTBL" />
             <End Role="ShippingTBL" EntitySet="ShippingTBL" />
           </AssociationSet>
-          <AssociationSet Name="OrderTypeOrderSupplierFK" Association="DataBaseModel.OrderTypeOrderSupplierFK">
-            <End Role="OrderTypeTBL" EntitySet="OrderTypeTBL" />
+          <AssociationSet Name="FK_OrderSupplierEmployees" Association="DataBaseModel.FK_OrderSupplierEmployees">
+            <End Role="EmployeesTBL" EntitySet="EmployeesTBL" />
             <End Role="OrdersFromSuppliersTBL" EntitySet="OrdersFromSuppliersTBL" />
           </AssociationSet>
-          <AssociationSet Name="SupplierOrderFK" Association="DataBaseModel.SupplierOrderFK">
+          <AssociationSet Name="FK_OrderSupplierSuppliers" Association="DataBaseModel.FK_OrderSupplierSuppliers">
             <End Role="SupplierTBL" EntitySet="SupplierTBL" />
             <End Role="OrdersFromSuppliersTBL" EntitySet="OrdersFromSuppliersTBL" />
-          </AssociationSet>
-          <AssociationSet Name="TypeOrderTypeFK" Association="DataBaseModel.TypeOrderTypeFK">
-            <End Role="TypeTBL" EntitySet="TypeTBL" />
-            <End Role="OrderTypeTBL" EntitySet="OrderTypeTBL" />
-          </AssociationSet>
-          <AssociationSet Name="TypeStockFK" Association="DataBaseModel.TypeStockFK">
-            <End Role="TypeTBL" EntitySet="TypeTBL" />
-            <End Role="StockTBL" EntitySet="StockTBL" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="AlbumTBL">
@@ -342,10 +311,13 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Artist" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
           <Property Name="SongsNumber" Type="Int32" />
-          <Property Name="Date" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="OrderTypeTBL" Relationship="DataBaseModel.AlbumOrderTypeFK" FromRole="AlbumTBL" ToRole="OrderTypeTBL" />
-          <NavigationProperty Name="StockTBL" Relationship="DataBaseModel.AlbumStockFK" FromRole="AlbumTBL" ToRole="StockTBL" />
+          <Property Name="Year" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="Int32" />
+          <NavigationProperty Name="DealsTBL" Relationship="DataBaseModel.FK_DealsAlbum" FromRole="AlbumTBL" ToRole="DealsTBL" />
+          <NavigationProperty Name="OrdersFromSuppliersTBL" Relationship="DataBaseModel.FK_OrderSupplierAlbum" FromRole="AlbumTBL" ToRole="OrdersFromSuppliersTBL" />
+          <NavigationProperty Name="StockTBL" Relationship="DataBaseModel.FK_StockAlbum" FromRole="AlbumTBL" ToRole="StockTBL" />
         </EntityType>
         <EntityType Name="CurrentExpensesTBL">
           <Key>
@@ -353,47 +325,50 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="Need" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Need" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="Date" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Cost" Type="Int32" Nullable="false" />
           <Property Name="Employee" Type="Int32" />
-          <NavigationProperty Name="EmployeesTBL" Relationship="DataBaseModel.EmployeeCurrentExpensesFK" FromRole="CurrentExpensesTBL" ToRole="EmployeesTBL" />
+          <NavigationProperty Name="EmployeesTBL" Relationship="DataBaseModel.FK_CurrentExpensesEmployees" FromRole="CurrentExpensesTBL" ToRole="EmployeesTBL" />
         </EntityType>
         <EntityType Name="CustomerTBL">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Phone" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="DealsTBL" Relationship="DataBaseModel.CustomerDealsFK" FromRole="CustomerTBL" ToRole="DealsTBL" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="OrdersNumber" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="DealsTBL" Relationship="DataBaseModel.FK_DealsCustomer" FromRole="CustomerTBL" ToRole="DealsTBL" />
         </EntityType>
         <EntityType Name="DealsTBL">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" />
-          <Property Name="Customer" Type="Int32" />
+          <Property Name="Customer" Type="Int32" Nullable="false" />
           <Property Name="Employee" Type="Int32" Nullable="false" />
           <Property Name="Cost" Type="Int32" Nullable="false" />
-          <Property Name="Type" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="CustomerTBL" Relationship="DataBaseModel.CustomerDealsFK" FromRole="DealsTBL" ToRole="CustomerTBL" />
-          <NavigationProperty Name="EmployeesTBL" Relationship="DataBaseModel.EmployeeDealsFK" FromRole="DealsTBL" ToRole="EmployeesTBL" />
-          <NavigationProperty Name="ShippingTBL" Relationship="DataBaseModel.ShipDealFK" FromRole="DealsTBL" ToRole="ShippingTBL" />
+          <Property Name="Album" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="AlbumTBL" Relationship="DataBaseModel.FK_DealsAlbum" FromRole="DealsTBL" ToRole="AlbumTBL" />
+          <NavigationProperty Name="CustomerTBL" Relationship="DataBaseModel.FK_DealsCustomer" FromRole="DealsTBL" ToRole="CustomerTBL" />
+          <NavigationProperty Name="EmployeesTBL" Relationship="DataBaseModel.FK_DealsEmployee" FromRole="DealsTBL" ToRole="EmployeesTBL" />
+          <NavigationProperty Name="ShippingTBL" Relationship="DataBaseModel.FK_ShippingDeals" FromRole="DealsTBL" ToRole="ShippingTBL" />
         </EntityType>
         <EntityType Name="EmployeesTBL">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Phone" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="CurrentExpensesTBL" Relationship="DataBaseModel.EmployeeCurrentExpensesFK" FromRole="EmployeesTBL" ToRole="CurrentExpensesTBL" />
-          <NavigationProperty Name="DealsTBL" Relationship="DataBaseModel.EmployeeDealsFK" FromRole="EmployeesTBL" ToRole="DealsTBL" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CurrentExpensesTBL" Relationship="DataBaseModel.FK_CurrentExpensesEmployees" FromRole="EmployeesTBL" ToRole="CurrentExpensesTBL" />
+          <NavigationProperty Name="DealsTBL" Relationship="DataBaseModel.FK_DealsEmployee" FromRole="EmployeesTBL" ToRole="DealsTBL" />
+          <NavigationProperty Name="OrdersFromSuppliersTBL" Relationship="DataBaseModel.FK_OrderSupplierEmployees" FromRole="EmployeesTBL" ToRole="OrdersFromSuppliersTBL" />
         </EntityType>
         <EntityType Name="OrdersFromSuppliersTBL">
           <Key>
@@ -401,22 +376,15 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" />
           <Property Name="Supplier" Type="Int32" Nullable="false" />
-          <Property Name="Date" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Employee" Type="Int32" Nullable="false" />
+          <Property Name="Month" Type="Int32" Nullable="false" />
+          <Property Name="Year" Type="Int32" Nullable="false" />
           <Property Name="Cost" Type="Int32" Nullable="false" />
-          <Property Name="OrderType" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="OrderTypeTBL" Relationship="DataBaseModel.OrderTypeOrderSupplierFK" FromRole="OrdersFromSuppliersTBL" ToRole="OrderTypeTBL" />
-          <NavigationProperty Name="SupplierTBL" Relationship="DataBaseModel.SupplierOrderFK" FromRole="OrdersFromSuppliersTBL" ToRole="SupplierTBL" />
-        </EntityType>
-        <EntityType Name="OrderTypeTBL">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
-          <Property Name="Album" Type="Int32" />
-          <Property Name="Type" Type="Int32" />
-          <NavigationProperty Name="AlbumTBL" Relationship="DataBaseModel.AlbumOrderTypeFK" FromRole="OrderTypeTBL" ToRole="AlbumTBL" />
-          <NavigationProperty Name="OrdersFromSuppliersTBL" Relationship="DataBaseModel.OrderTypeOrderSupplierFK" FromRole="OrderTypeTBL" ToRole="OrdersFromSuppliersTBL" />
-          <NavigationProperty Name="TypeTBL" Relationship="DataBaseModel.TypeOrderTypeFK" FromRole="OrderTypeTBL" ToRole="TypeTBL" />
+          <Property Name="Album" Type="Int32" Nullable="false" />
+          <Property Name="Amount" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="AlbumTBL" Relationship="DataBaseModel.FK_OrderSupplierAlbum" FromRole="OrdersFromSuppliersTBL" ToRole="AlbumTBL" />
+          <NavigationProperty Name="EmployeesTBL" Relationship="DataBaseModel.FK_OrderSupplierEmployees" FromRole="OrdersFromSuppliersTBL" ToRole="EmployeesTBL" />
+          <NavigationProperty Name="SupplierTBL" Relationship="DataBaseModel.FK_OrderSupplierSuppliers" FromRole="OrdersFromSuppliersTBL" ToRole="SupplierTBL" />
         </EntityType>
         <EntityType Name="ShippingTBL">
           <Key>
@@ -425,7 +393,8 @@
           <Property Name="Id" Type="Int32" Nullable="false" />
           <Property Name="Deal" Type="Int32" />
           <Property Name="ShipCost" Type="Int32" />
-          <NavigationProperty Name="DealsTBL" Relationship="DataBaseModel.ShipDealFK" FromRole="ShippingTBL" ToRole="DealsTBL" />
+          <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="DealsTBL" Relationship="DataBaseModel.FK_ShippingDeals" FromRole="ShippingTBL" ToRole="DealsTBL" />
         </EntityType>
         <EntityType Name="StockTBL">
           <Key>
@@ -433,43 +402,46 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" />
           <Property Name="Album" Type="Int32" />
-          <Property Name="Type" Type="Int32" />
-          <NavigationProperty Name="AlbumTBL" Relationship="DataBaseModel.AlbumStockFK" FromRole="StockTBL" ToRole="AlbumTBL" />
-          <NavigationProperty Name="TypeTBL" Relationship="DataBaseModel.TypeStockFK" FromRole="StockTBL" ToRole="TypeTBL" />
+          <Property Name="Amount" Type="Int32" />
+          <NavigationProperty Name="AlbumTBL" Relationship="DataBaseModel.FK_StockAlbum" FromRole="StockTBL" ToRole="AlbumTBL" />
         </EntityType>
         <EntityType Name="SupplierTBL">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="OrdersAmount" Type="Int32" />
-          <NavigationProperty Name="OrdersFromSuppliersTBL" Relationship="DataBaseModel.SupplierOrderFK" FromRole="SupplierTBL" ToRole="OrdersFromSuppliersTBL" />
+          <NavigationProperty Name="OrdersFromSuppliersTBL" Relationship="DataBaseModel.FK_OrderSupplierSuppliers" FromRole="SupplierTBL" ToRole="OrdersFromSuppliersTBL" />
         </EntityType>
-        <EntityType Name="TypeTBL">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
-          <Property Name="Disk" Type="Int32" />
-          <Property Name="Record" Type="Int32" />
-          <Property Name="Cassette" Type="Int32" />
-          <NavigationProperty Name="OrderTypeTBL" Relationship="DataBaseModel.TypeOrderTypeFK" FromRole="TypeTBL" ToRole="OrderTypeTBL" />
-          <NavigationProperty Name="StockTBL" Relationship="DataBaseModel.TypeStockFK" FromRole="TypeTBL" ToRole="StockTBL" />
-        </EntityType>
-        <Association Name="AlbumOrderTypeFK">
-          <End Type="DataBaseModel.AlbumTBL" Role="AlbumTBL" Multiplicity="0..1" />
-          <End Type="DataBaseModel.OrderTypeTBL" Role="OrderTypeTBL" Multiplicity="*" />
+        <Association Name="FK_DealsAlbum">
+          <End Type="DataBaseModel.AlbumTBL" Role="AlbumTBL" Multiplicity="1" />
+          <End Type="DataBaseModel.DealsTBL" Role="DealsTBL" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="AlbumTBL">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="OrderTypeTBL">
+            <Dependent Role="DealsTBL">
               <PropertyRef Name="Album" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="AlbumStockFK">
+        <Association Name="FK_OrderSupplierAlbum">
+          <End Type="DataBaseModel.AlbumTBL" Role="AlbumTBL" Multiplicity="1" />
+          <End Type="DataBaseModel.OrdersFromSuppliersTBL" Role="OrdersFromSuppliersTBL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AlbumTBL">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OrdersFromSuppliersTBL">
+              <PropertyRef Name="Album" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StockAlbum">
           <End Type="DataBaseModel.AlbumTBL" Role="AlbumTBL" Multiplicity="0..1" />
           <End Type="DataBaseModel.StockTBL" Role="StockTBL" Multiplicity="*" />
           <ReferentialConstraint>
@@ -481,7 +453,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="EmployeeCurrentExpensesFK">
+        <Association Name="FK_CurrentExpensesEmployees">
           <End Type="DataBaseModel.EmployeesTBL" Role="EmployeesTBL" Multiplicity="0..1" />
           <End Type="DataBaseModel.CurrentExpensesTBL" Role="CurrentExpensesTBL" Multiplicity="*" />
           <ReferentialConstraint>
@@ -493,8 +465,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="CustomerDealsFK">
-          <End Type="DataBaseModel.CustomerTBL" Role="CustomerTBL" Multiplicity="0..1" />
+        <Association Name="FK_DealsCustomer">
+          <End Type="DataBaseModel.CustomerTBL" Role="CustomerTBL" Multiplicity="1" />
           <End Type="DataBaseModel.DealsTBL" Role="DealsTBL" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="CustomerTBL">
@@ -505,7 +477,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="EmployeeDealsFK">
+        <Association Name="FK_DealsEmployee">
           <End Type="DataBaseModel.EmployeesTBL" Role="EmployeesTBL" Multiplicity="1" />
           <End Type="DataBaseModel.DealsTBL" Role="DealsTBL" Multiplicity="*" />
           <ReferentialConstraint>
@@ -517,7 +489,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="ShipDealFK">
+        <Association Name="FK_ShippingDeals">
           <End Type="DataBaseModel.DealsTBL" Role="DealsTBL" Multiplicity="0..1" />
           <End Type="DataBaseModel.ShippingTBL" Role="ShippingTBL" Multiplicity="*" />
           <ReferentialConstraint>
@@ -529,19 +501,19 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="OrderTypeOrderSupplierFK">
-          <End Type="DataBaseModel.OrderTypeTBL" Role="OrderTypeTBL" Multiplicity="1" />
+        <Association Name="FK_OrderSupplierEmployees">
+          <End Type="DataBaseModel.EmployeesTBL" Role="EmployeesTBL" Multiplicity="1" />
           <End Type="DataBaseModel.OrdersFromSuppliersTBL" Role="OrdersFromSuppliersTBL" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="OrderTypeTBL">
+            <Principal Role="EmployeesTBL">
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="OrdersFromSuppliersTBL">
-              <PropertyRef Name="OrderType" />
+              <PropertyRef Name="Employee" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="SupplierOrderFK">
+        <Association Name="FK_OrderSupplierSuppliers">
           <End Type="DataBaseModel.SupplierTBL" Role="SupplierTBL" Multiplicity="1" />
           <End Type="DataBaseModel.OrdersFromSuppliersTBL" Role="OrdersFromSuppliersTBL" Multiplicity="*" />
           <ReferentialConstraint>
@@ -550,30 +522,6 @@
             </Principal>
             <Dependent Role="OrdersFromSuppliersTBL">
               <PropertyRef Name="Supplier" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="TypeOrderTypeFK">
-          <End Type="DataBaseModel.TypeTBL" Role="TypeTBL" Multiplicity="0..1" />
-          <End Type="DataBaseModel.OrderTypeTBL" Role="OrderTypeTBL" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TypeTBL">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="OrderTypeTBL">
-              <PropertyRef Name="Type" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="TypeStockFK">
-          <End Type="DataBaseModel.TypeTBL" Role="TypeTBL" Multiplicity="0..1" />
-          <End Type="DataBaseModel.StockTBL" Role="StockTBL" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TypeTBL">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="StockTBL">
-              <PropertyRef Name="Type" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -586,8 +534,10 @@
           <EntitySetMapping Name="AlbumTBL">
             <EntityTypeMapping TypeName="DataBaseModel.AlbumTBL">
               <MappingFragment StoreEntitySet="AlbumTBL">
-                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
                 <ScalarProperty Name="SongsNumber" ColumnName="SongsNumber" />
+                <ScalarProperty Name="Artist" ColumnName="Artist" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
@@ -608,6 +558,7 @@
           <EntitySetMapping Name="CustomerTBL">
             <EntityTypeMapping TypeName="DataBaseModel.CustomerTBL">
               <MappingFragment StoreEntitySet="CustomerTBL">
+                <ScalarProperty Name="OrdersNumber" ColumnName="OrdersNumber" />
                 <ScalarProperty Name="Address" ColumnName="Address" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="Phone" ColumnName="Phone" />
@@ -619,7 +570,7 @@
           <EntitySetMapping Name="DealsTBL">
             <EntityTypeMapping TypeName="DataBaseModel.DealsTBL">
               <MappingFragment StoreEntitySet="DealsTBL">
-                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Album" ColumnName="Album" />
                 <ScalarProperty Name="Cost" ColumnName="Cost" />
                 <ScalarProperty Name="Employee" ColumnName="Employee" />
                 <ScalarProperty Name="Customer" ColumnName="Customer" />
@@ -641,19 +592,13 @@
           <EntitySetMapping Name="OrdersFromSuppliersTBL">
             <EntityTypeMapping TypeName="DataBaseModel.OrdersFromSuppliersTBL">
               <MappingFragment StoreEntitySet="OrdersFromSuppliersTBL">
-                <ScalarProperty Name="OrderType" ColumnName="OrderType" />
-                <ScalarProperty Name="Cost" ColumnName="Cost" />
-                <ScalarProperty Name="Date" ColumnName="Date" />
-                <ScalarProperty Name="Supplier" ColumnName="Supplier" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="OrderTypeTBL">
-            <EntityTypeMapping TypeName="DataBaseModel.OrderTypeTBL">
-              <MappingFragment StoreEntitySet="OrderTypeTBL">
-                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
                 <ScalarProperty Name="Album" ColumnName="Album" />
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="Month" ColumnName="Month" />
+                <ScalarProperty Name="Employee" ColumnName="Employee" />
+                <ScalarProperty Name="Supplier" ColumnName="Supplier" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -661,6 +606,7 @@
           <EntitySetMapping Name="ShippingTBL">
             <EntityTypeMapping TypeName="DataBaseModel.ShippingTBL">
               <MappingFragment StoreEntitySet="ShippingTBL">
+                <ScalarProperty Name="Address" ColumnName="Address" />
                 <ScalarProperty Name="ShipCost" ColumnName="ShipCost" />
                 <ScalarProperty Name="Deal" ColumnName="Deal" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
@@ -670,7 +616,7 @@
           <EntitySetMapping Name="StockTBL">
             <EntityTypeMapping TypeName="DataBaseModel.StockTBL">
               <MappingFragment StoreEntitySet="StockTBL">
-                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
                 <ScalarProperty Name="Album" ColumnName="Album" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
@@ -680,17 +626,10 @@
             <EntityTypeMapping TypeName="DataBaseModel.SupplierTBL">
               <MappingFragment StoreEntitySet="SupplierTBL">
                 <ScalarProperty Name="OrdersAmount" ColumnName="OrdersAmount" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="TypeTBL">
-            <EntityTypeMapping TypeName="DataBaseModel.TypeTBL">
-              <MappingFragment StoreEntitySet="TypeTBL">
-                <ScalarProperty Name="Cassette" ColumnName="Cassette" />
-                <ScalarProperty Name="Record" ColumnName="Record" />
-                <ScalarProperty Name="Disk" ColumnName="Disk" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

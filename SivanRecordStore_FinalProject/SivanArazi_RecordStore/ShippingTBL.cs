@@ -17,6 +17,7 @@ namespace SivanArazi_RecordStore
         public int Id { get; set; }
         public Nullable<int> Deal { get; set; }
         public Nullable<int> ShipCost { get; set; }
+        public string Address { get; set; }
     
         public virtual DealsTBL DealsTBL { get; set; }
     }

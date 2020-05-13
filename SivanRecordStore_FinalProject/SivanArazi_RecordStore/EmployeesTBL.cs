@@ -19,6 +19,7 @@ namespace SivanArazi_RecordStore
         {
             this.CurrentExpensesTBL = new HashSet<CurrentExpensesTBL>();
             this.DealsTBL = new HashSet<DealsTBL>();
+            this.OrdersFromSuppliersTBL = new HashSet<OrdersFromSuppliersTBL>();
         }
     
         public int Id { get; set; }
@@ -31,5 +32,7 @@ namespace SivanArazi_RecordStore
         public virtual ICollection<CurrentExpensesTBL> CurrentExpensesTBL { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DealsTBL> DealsTBL { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<OrdersFromSuppliersTBL> OrdersFromSuppliersTBL { get; set; }
     }
 }

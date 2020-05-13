@@ -31,10 +31,8 @@ namespace SivanArazi_RecordStore
         public virtual DbSet<DealsTBL> DealsTBL { get; set; }
         public virtual DbSet<EmployeesTBL> EmployeesTBL { get; set; }
         public virtual DbSet<OrdersFromSuppliersTBL> OrdersFromSuppliersTBL { get; set; }
-        public virtual DbSet<OrderTypeTBL> OrderTypeTBL { get; set; }
         public virtual DbSet<ShippingTBL> ShippingTBL { get; set; }
         public virtual DbSet<StockTBL> StockTBL { get; set; }
         public virtual DbSet<SupplierTBL> SupplierTBL { get; set; }
-        public virtual DbSet<TypeTBL> TypeTBL { get; set; }
     }
 }

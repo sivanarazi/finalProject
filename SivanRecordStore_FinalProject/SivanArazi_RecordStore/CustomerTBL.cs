@@ -25,6 +25,7 @@ namespace SivanArazi_RecordStore
         public string Phone { get; set; }
         public string Email { get; set; }
         public string Address { get; set; }
+        public int OrdersNumber { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DealsTBL> DealsTBL { get; set; }
