@@ -7,10 +7,46 @@
         mc:Ignorable="d"
         Title="EmployeesWin" Height="450" Width="800" Background="#DA7808">
     <Grid>
-        <DataGrid x:Name="dg" HorizontalAlignment="Left" Height="273" Margin="44,56,0,0" VerticalAlignment="Top" Width="502"/>
-        <Button Content="Add" HorizontalAlignment="Left" Margin="652,75,0,0" VerticalAlignment="Top" Width="75" Click="AddEmployee" Background="White"/>
-        <Button Content="Remove" HorizontalAlignment="Left" Margin="652,123,0,0" VerticalAlignment="Top" Width="75" Click="RemoveEmployee" Background="White"/>
-        <Button Content="Exit" HorizontalAlignment="Left" Margin="652,358,0,0" VerticalAlignment="Top" Width="75" Click="Exit" Background="White"/>
+        <TabControl HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <TabItem Header="View">
+                <DataGrid x:Name="dg_Employees" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch"/>
+            </TabItem>
+            <TabItem Header="Add">
+                <Grid>
+                    <TextBox x:Name = "tb_name"  HorizontalAlignment="Left" Height="25" Margin="140,70,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+                    <TextBox x:Name = "tb_phone" HorizontalAlignment="Left" Height="25" Margin="140,140,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+                    <TextBox x:Name = "tb_email" HorizontalAlignment="Left" Height="25" Margin="140,200,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+                    <TextBox x:Name = "tb_address" HorizontalAlignment="Left" Height="25" Margin="140,260,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="50,70,0,0"  TextWrapping="Wrap" Text="Name:" VerticalAlignment="Top"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="50,140,0,0" TextWrapping="Wrap" Text="Phone:" VerticalAlignment="Top"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="50,200,0,0" TextWrapping="Wrap" Text="Email:" VerticalAlignment="Top"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="50,260,0,0" TextWrapping="Wrap" Text="Address:" VerticalAlignment="Top"/>
+                    <Button Content="Add" HorizontalAlignment="Left" Margin="300,350,0,0" VerticalAlignment="Top" Width="75" Click="AddEmployee"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Delete">
+                <Grid>
+                    <ComboBox x:Name="cb_DelEmployees" Width="200" Height="25" />
+                    <Button Content="Delete" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="1,1,1,50" Width="75" Click="DeleteEmployee"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Update">
+                <Grid>
+                    <ComboBox x:Name="cb_UpEmployees" Width="200" Height="25" Margin="60,130,526,235" />
+                    <Button Content="choose" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="127,0,584,133" Width="75" Click="UpdateChooseEmployee"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="400,70,0,0"  TextWrapping="Wrap" Text="Name:" VerticalAlignment="Top"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="400,140,0,0" TextWrapping="Wrap" Text="Phone:" VerticalAlignment="Top"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="400,200,0,0" TextWrapping="Wrap" Text="Email:" VerticalAlignment="Top"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="400,260,0,0" TextWrapping="Wrap" Text="Address:" VerticalAlignment="Top"/>
+                    <TextBox HorizontalAlignment="Left" Height="25" Margin="500,70,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+                    <TextBox HorizontalAlignment="Left" Height="25" Margin="500,140,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+                    <TextBox HorizontalAlignment="Left" Height="25" Margin="500,200,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+                    <TextBox HorizontalAlignment="Left" Height="25" Margin="500,260,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+                    <Button Content="Update" HorizontalAlignment="Left" Margin="650,350,0,0" VerticalAlignment="Top" Width="75" Click="UpdateEmployee"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+
 
     </Grid>
 </Window>

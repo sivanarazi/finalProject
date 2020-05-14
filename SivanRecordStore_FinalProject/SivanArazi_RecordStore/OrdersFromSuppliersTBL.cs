@@ -21,6 +21,7 @@ namespace SivanArazi_RecordStore
         public int Year { get; set; }
         public int Cost { get; set; }
         public int Album { get; set; }
+        public int Type { get; set; }
         public int Amount { get; set; }
     
         public virtual AlbumTBL AlbumTBL { get; set; }

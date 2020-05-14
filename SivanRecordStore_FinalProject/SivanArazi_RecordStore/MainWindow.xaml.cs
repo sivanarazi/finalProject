@@ -24,7 +24,6 @@ namespace SivanArazi_RecordStore
         public MainWindow()
         {
             InitializeComponent();
-            //CreateStock();
         }
 
         private void GoToEmployeesWin(object sender, RoutedEventArgs e)
@@ -47,10 +46,25 @@ namespace SivanArazi_RecordStore
             w.Show();
             this.Close();
         }
-
-        private void CreateStock()
+        
+        private void GoToDealsWin(object sender, RoutedEventArgs e)
         {
-            
+
+        }
+
+        private void GoToSuppliersWin(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void GoToAlbusWin(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void GoToExpensesWin(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

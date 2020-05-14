@@ -4,16 +4,16 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="49af9910fc464af3bbbaefec5b2d8037" Name="Diagram1" ZoomLevel="32">
-        <EntityTypeShape EntityType="DataBaseModel.AlbumTBL" Width="1.5" PointX="17.25" PointY="10.125" />
-        <EntityTypeShape EntityType="DataBaseModel.CurrentExpensesTBL" Width="1.5" PointX="14" PointY="2.125" />
-        <EntityTypeShape EntityType="DataBaseModel.CustomerTBL" Width="1.5" PointX="16.875" PointY="2.125" />
-        <EntityTypeShape EntityType="DataBaseModel.DealsTBL" Width="1.5" PointX="17" PointY="5.875" />
-        <EntityTypeShape EntityType="DataBaseModel.EmployeesTBL" Width="1.5" PointX="13.875" PointY="5.875" />
-        <EntityTypeShape EntityType="DataBaseModel.OrdersFromSuppliersTBL" Width="1.5" PointX="14" PointY="9.75" />
-        <EntityTypeShape EntityType="DataBaseModel.ShippingTBL" Width="1.5" PointX="20.125" PointY="6" />
-        <EntityTypeShape EntityType="DataBaseModel.StockTBL" Width="1.5" PointX="17.625" PointY="14.25" />
-        <EntityTypeShape EntityType="DataBaseModel.SupplierTBL" Width="1.5" PointX="10.625" PointY="10.375" />
+      <Diagram DiagramId="49af9910fc464af3bbbaefec5b2d8037" Name="Diagram1" ZoomLevel="37">
+        <EntityTypeShape EntityType="DataBaseModel.AlbumTBL" Width="1.5" PointX="3.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DataBaseModel.CurrentExpensesTBL" Width="1.5" PointX="3" PointY="13" />
+        <EntityTypeShape EntityType="DataBaseModel.CustomerTBL" Width="1.5" PointX="3.75" PointY="9" />
+        <EntityTypeShape EntityType="DataBaseModel.DealsTBL" Width="1.5" PointX="6" PointY="5.25" />
+        <EntityTypeShape EntityType="DataBaseModel.EmployeesTBL" Width="1.5" PointX="0.75" PointY="5.25" />
+        <EntityTypeShape EntityType="DataBaseModel.OrdersFromSuppliersTBL" Width="1.5" PointX="3" PointY="4.875" />
+        <EntityTypeShape EntityType="DataBaseModel.ShippingTBL" Width="1.5" PointX="8.25" PointY="5.625" />
+        <EntityTypeShape EntityType="DataBaseModel.StockTBL" Width="1.5" PointX="6" PointY="1.75" />
+        <EntityTypeShape EntityType="DataBaseModel.SupplierTBL" Width="1.5" PointX="0.75" PointY="1.375" />
         <AssociationConnector Association="DataBaseModel.FK_DealsAlbum" />
         <AssociationConnector Association="DataBaseModel.FK_OrderSupplierAlbum" />
         <AssociationConnector Association="DataBaseModel.FK_StockAlbum" />

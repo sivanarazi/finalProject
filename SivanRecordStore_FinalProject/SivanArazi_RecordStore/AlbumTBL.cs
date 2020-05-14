@@ -26,8 +26,7 @@ namespace SivanArazi_RecordStore
         public string Name { get; set; }
         public string Artist { get; set; }
         public Nullable<int> SongsNumber { get; set; }
-        public string Year { get; set; }
-        public Nullable<int> Type { get; set; }
+        public Nullable<int> Year { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DealsTBL> DealsTBL { get; set; }

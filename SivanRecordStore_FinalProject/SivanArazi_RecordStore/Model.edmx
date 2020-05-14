@@ -13,8 +13,7 @@
           <Property Name="Name" Type="nvarchar" MaxLength="50" />
           <Property Name="Artist" Type="nvarchar" MaxLength="150" />
           <Property Name="SongsNumber" Type="int" />
-          <Property Name="Year" Type="nvarchar" MaxLength="50" />
-          <Property Name="Type" Type="int" />
+          <Property Name="Year" Type="int" />
         </EntityType>
         <EntityType Name="CurrentExpensesTBL">
           <Key>
@@ -52,7 +51,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="Phone" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Email" Type="nvarchar" MaxLength="100" />
@@ -69,6 +68,7 @@
           <Property Name="Year" Type="int" Nullable="false" />
           <Property Name="Cost" Type="int" Nullable="false" />
           <Property Name="Album" Type="int" Nullable="false" />
+          <Property Name="Type" Type="int" Nullable="false" />
           <Property Name="Amount" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="ShippingTBL">
@@ -86,6 +86,7 @@
           </Key>
           <Property Name="Id" Type="int" Nullable="false" />
           <Property Name="Album" Type="int" />
+          <Property Name="Type" Type="int" />
           <Property Name="Amount" Type="int" />
         </EntityType>
         <EntityType Name="SupplierTBL">
@@ -313,8 +314,7 @@
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Artist" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
           <Property Name="SongsNumber" Type="Int32" />
-          <Property Name="Year" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Type" Type="Int32" />
+          <Property Name="Year" Type="Int32" />
           <NavigationProperty Name="DealsTBL" Relationship="DataBaseModel.FK_DealsAlbum" FromRole="AlbumTBL" ToRole="DealsTBL" />
           <NavigationProperty Name="OrdersFromSuppliersTBL" Relationship="DataBaseModel.FK_OrderSupplierAlbum" FromRole="AlbumTBL" ToRole="OrdersFromSuppliersTBL" />
           <NavigationProperty Name="StockTBL" Relationship="DataBaseModel.FK_StockAlbum" FromRole="AlbumTBL" ToRole="StockTBL" />
@@ -361,7 +361,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Phone" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
@@ -381,6 +381,7 @@
           <Property Name="Year" Type="Int32" Nullable="false" />
           <Property Name="Cost" Type="Int32" Nullable="false" />
           <Property Name="Album" Type="Int32" Nullable="false" />
+          <Property Name="Type" Type="Int32" Nullable="false" />
           <Property Name="Amount" Type="Int32" Nullable="false" />
           <NavigationProperty Name="AlbumTBL" Relationship="DataBaseModel.FK_OrderSupplierAlbum" FromRole="OrdersFromSuppliersTBL" ToRole="AlbumTBL" />
           <NavigationProperty Name="EmployeesTBL" Relationship="DataBaseModel.FK_OrderSupplierEmployees" FromRole="OrdersFromSuppliersTBL" ToRole="EmployeesTBL" />
@@ -402,6 +403,7 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" />
           <Property Name="Album" Type="Int32" />
+          <Property Name="Type" Type="Int32" />
           <Property Name="Amount" Type="Int32" />
           <NavigationProperty Name="AlbumTBL" Relationship="DataBaseModel.FK_StockAlbum" FromRole="StockTBL" ToRole="AlbumTBL" />
         </EntityType>
@@ -534,7 +536,6 @@
           <EntitySetMapping Name="AlbumTBL">
             <EntityTypeMapping TypeName="DataBaseModel.AlbumTBL">
               <MappingFragment StoreEntitySet="AlbumTBL">
-                <ScalarProperty Name="Type" ColumnName="Type" />
                 <ScalarProperty Name="Year" ColumnName="Year" />
                 <ScalarProperty Name="SongsNumber" ColumnName="SongsNumber" />
                 <ScalarProperty Name="Artist" ColumnName="Artist" />
@@ -593,6 +594,7 @@
             <EntityTypeMapping TypeName="DataBaseModel.OrdersFromSuppliersTBL">
               <MappingFragment StoreEntitySet="OrdersFromSuppliersTBL">
                 <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
                 <ScalarProperty Name="Album" ColumnName="Album" />
                 <ScalarProperty Name="Cost" ColumnName="Cost" />
                 <ScalarProperty Name="Year" ColumnName="Year" />
@@ -617,6 +619,7 @@
             <EntityTypeMapping TypeName="DataBaseModel.StockTBL">
               <MappingFragment StoreEntitySet="StockTBL">
                 <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
                 <ScalarProperty Name="Album" ColumnName="Album" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>

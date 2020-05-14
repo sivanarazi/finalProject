@@ -23,23 +23,66 @@ namespace SivanArazi_RecordStore
         public EmployeesWin()
         {
             InitializeComponent();
-            dg.ItemsSource = getEmployees();
+            UpdateProgram();
         }
 
         private void AddEmployee(object sender, RoutedEventArgs e)
         {
-            AddEmployeeWin w = new AddEmployeeWin();
-            w.Show();
-            this.Close();
+            EmployeesTBL a = new EmployeesTBL
+            {
+                Name = tb_name.Text,
+                Phone = tb_phone.Text,
+                Email = tb_email.Text,
+                Address = tb_address.Text,
+            };
+            db.EmployeesTBL.Add(a);
+            db.SaveChanges();
+            UpdateProgram();
+            tb_name.Text = "";
+            tb_phone.Text = "";
+            tb_email.Text = "";
+            tb_address.Text = "";
         }
 
-        private void RemoveEmployee(object sender, RoutedEventArgs e)
+        private void DeleteEmployee(object sender, RoutedEventArgs e)
         {
+            int id = int.Parse((cb_DelEmployees.Text).Remove((cb_DelEmployees.Text).IndexOf(".")));
+            db.EmployeesTBL.Remove(db.EmployeesTBL.Where(i => i.Id == id).First());
+            db.SaveChanges();
+            UpdateProgram();
+        }        
 
+        private void UpdateChooseEmployee(object sender, RoutedEventArgs e)
+        {
+            
         }
+
+        private void UpdateEmployee(object sender, RoutedEventArgs e)
+        {
+            /*int id = int.Parse((cb_UpEmployees.Text).Remove((cb_UpEmployees.Text).IndexOf(".")));
+            var result = db.EmployeesTBL.SingleOrDefault(b => b.Id == id);
+            if (result != null)
+            {
+                result.SomeValue = "Some new value";
+                db.SaveChanges();
+            }*/
+        }
+
         public List<EmployeesTBL> getEmployees()
         {
             return db.EmployeesTBL.ToList<EmployeesTBL>();
+        }
+
+        public List<string> getEmployeesIdsAndNames()
+        {
+            return db.EmployeesTBL.Select(dr => dr.Id + ". " + dr.Name).ToList();
+        }
+
+        public void UpdateProgram()
+        {
+            dg_Employees.ItemsSource = getEmployees();
+            cb_DelEmployees.ItemsSource = getEmployeesIdsAndNames();
+            cb_UpEmployees.ItemsSource = getEmployeesIdsAndNames();
         }
 
         private void Exit(object sender, RoutedEventArgs e)
