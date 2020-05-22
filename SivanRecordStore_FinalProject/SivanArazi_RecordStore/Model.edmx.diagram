@@ -4,25 +4,31 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="49af9910fc464af3bbbaefec5b2d8037" Name="Diagram1" ZoomLevel="37">
-        <EntityTypeShape EntityType="DataBaseModel.AlbumTBL" Width="1.5" PointX="3.75" PointY="0.75" />
-        <EntityTypeShape EntityType="DataBaseModel.CurrentExpensesTBL" Width="1.5" PointX="3" PointY="13" />
-        <EntityTypeShape EntityType="DataBaseModel.CustomerTBL" Width="1.5" PointX="3.75" PointY="9" />
-        <EntityTypeShape EntityType="DataBaseModel.DealsTBL" Width="1.5" PointX="6" PointY="5.25" />
-        <EntityTypeShape EntityType="DataBaseModel.EmployeesTBL" Width="1.5" PointX="0.75" PointY="5.25" />
-        <EntityTypeShape EntityType="DataBaseModel.OrdersFromSuppliersTBL" Width="1.5" PointX="3" PointY="4.875" />
-        <EntityTypeShape EntityType="DataBaseModel.ShippingTBL" Width="1.5" PointX="8.25" PointY="5.625" />
-        <EntityTypeShape EntityType="DataBaseModel.StockTBL" Width="1.5" PointX="6" PointY="1.75" />
-        <EntityTypeShape EntityType="DataBaseModel.SupplierTBL" Width="1.5" PointX="0.75" PointY="1.375" />
-        <AssociationConnector Association="DataBaseModel.FK_DealsAlbum" />
-        <AssociationConnector Association="DataBaseModel.FK_OrderSupplierAlbum" />
-        <AssociationConnector Association="DataBaseModel.FK_StockAlbum" />
-        <AssociationConnector Association="DataBaseModel.FK_CurrentExpensesEmployees" />
-        <AssociationConnector Association="DataBaseModel.FK_DealsCustomer" />
-        <AssociationConnector Association="DataBaseModel.FK_DealsEmployee" />
-        <AssociationConnector Association="DataBaseModel.FK_ShippingDeals" />
-        <AssociationConnector Association="DataBaseModel.FK_OrderSupplierEmployees" />
-        <AssociationConnector Association="DataBaseModel.FK_OrderSupplierSuppliers" />
+      <Diagram DiagramId="49af9910fc464af3bbbaefec5b2d8037" Name="Diagram1" ZoomLevel="77">
+        <EntityTypeShape EntityType="DataBaseModel.AlbumsTBL" Width="1.5" PointX="4.125" PointY="10.75" />
+        <EntityTypeShape EntityType="DataBaseModel.CustomersTBL" Width="1.5" PointX="13.625" PointY="14.875" />
+        <EntityTypeShape EntityType="DataBaseModel.DealsDetailsTBL" Width="1.5" PointX="10.375" PointY="11.125" />
+        <EntityTypeShape EntityType="DataBaseModel.DealsTBL" Width="1.5" PointX="13.25" PointY="11.25" />
+        <EntityTypeShape EntityType="DataBaseModel.EmployeesTBL" Width="1.5" PointX="13.25" PointY="7.875" />
+        <EntityTypeShape EntityType="DataBaseModel.ExpensesTBL" Width="1.5" PointX="16.625" PointY="8" />
+        <EntityTypeShape EntityType="DataBaseModel.OrdersFromSuppliersDetailsTBL" Width="1.5" PointX="7.375" PointY="7.625" />
+        <EntityTypeShape EntityType="DataBaseModel.OrdersFromSuppliersTBL" Width="1.5" PointX="10.125" PointY="8" />
+        <EntityTypeShape EntityType="DataBaseModel.ProductsTBL" Width="1.5" PointX="7.375" PointY="11" />
+        <EntityTypeShape EntityType="DataBaseModel.ShippingTBL" Width="1.5" PointX="16.75" PointY="11.625" />
+        <EntityTypeShape EntityType="DataBaseModel.StockTBL" Width="1.5" PointX="7.625" PointY="15.25" />
+        <EntityTypeShape EntityType="DataBaseModel.SuppliersTBL" Width="1.5" PointX="10.375" PointY="4.75" />
+        <AssociationConnector Association="DataBaseModel.FK_Products_Albums" />
+        <AssociationConnector Association="DataBaseModel.FK_Deals_Customers" />
+        <AssociationConnector Association="DataBaseModel.FK_Deals_DealsDetails" />
+        <AssociationConnector Association="DataBaseModel.FK_DealsDetails_Stock" />
+        <AssociationConnector Association="DataBaseModel.FK_Deals_Employees" />
+        <AssociationConnector Association="DataBaseModel.FK_Shipping_Deals" />
+        <AssociationConnector Association="DataBaseModel.FK_Expenses_Employees" />
+        <AssociationConnector Association="DataBaseModel.FK_OrdersFromSuppliers_Employees" />
+        <AssociationConnector Association="DataBaseModel.FK_OrdersFromSuppliers_OrdersFromSuppliersDetails" />
+        <AssociationConnector Association="DataBaseModel.FK_OrdersFromSuppliersDetails_Products" />
+        <AssociationConnector Association="DataBaseModel.FK_OrdersFromSuppliers_Suppliers" />
+        <AssociationConnector Association="DataBaseModel.FK_Stock_Products" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -20,9 +20,11 @@ namespace SivanArazi_RecordStore
     public partial class EmployeesWin : Window
     {
         DataBaseEntities db = new DataBaseEntities();
-        public EmployeesWin()
+        private MainWindow m;
+        public EmployeesWin(MainWindow m)
         {
             InitializeComponent();
+            this.m = m;
             UpdateProgram();
         }
 
@@ -30,42 +32,71 @@ namespace SivanArazi_RecordStore
         {
             EmployeesTBL a = new EmployeesTBL
             {
-                Name = tb_name.Text,
-                Phone = tb_phone.Text,
-                Email = tb_email.Text,
-                Address = tb_address.Text,
+                Name = tb_A_Name.Text,
+                Phone = tb_A_Phone.Text,
+                Email = tb_A_Email.Text,
+                Address = tb_A_Address.Text,
             };
             db.EmployeesTBL.Add(a);
             db.SaveChanges();
             UpdateProgram();
-            tb_name.Text = "";
-            tb_phone.Text = "";
-            tb_email.Text = "";
-            tb_address.Text = "";
+            tb_A_Name.Text = "";
+            tb_A_Phone.Text = "";
+            tb_A_Email.Text = "";
+            tb_A_Address.Text = "";
+            UpdateProgram();
         }
 
         private void DeleteEmployee(object sender, RoutedEventArgs e)
         {
-            int id = int.Parse((cb_DelEmployees.Text).Remove((cb_DelEmployees.Text).IndexOf(".")));
+            int id = int.Parse((cb_D_Employees.Text).Remove((cb_D_Employees.Text).IndexOf(".")));
             db.EmployeesTBL.Remove(db.EmployeesTBL.Where(i => i.Id == id).First());
             db.SaveChanges();
             UpdateProgram();
-        }        
-
+        }
+        
         private void UpdateChooseEmployee(object sender, RoutedEventArgs e)
         {
-            
+            tb_U_Name.Visibility = Visibility.Visible;
+            tb_U_Phone.Visibility = Visibility.Visible;
+            tb_U_Email.Visibility = Visibility.Visible;
+            tb_U_Address.Visibility = Visibility.Visible;
+            tbl_U_Name.Visibility = Visibility.Visible;
+            tbl_U_Phone.Visibility = Visibility.Visible;
+            tbl_U_Email.Visibility = Visibility.Visible;
+            tbl_U_Address.Visibility = Visibility.Visible;
+
+            tb_A_Name.Text = "";
+            tb_U_Phone.Text = "";
+            tb_U_Email.Text = "";
+            tb_U_Address.Text = "";
         }
 
         private void UpdateEmployee(object sender, RoutedEventArgs e)
         {
-            /*int id = int.Parse((cb_UpEmployees.Text).Remove((cb_UpEmployees.Text).IndexOf(".")));
-            var result = db.EmployeesTBL.SingleOrDefault(b => b.Id == id);
-            if (result != null)
-            {
-                result.SomeValue = "Some new value";
-                db.SaveChanges();
-            }*/
+            int id = int.Parse((cb_U_Employees.Text).Remove((cb_U_Employees.Text).IndexOf(".")));
+            EmployeesTBL em = db.EmployeesTBL.Where(i => i.Id == id).First();
+            em.Name = tb_U_Name.Text;
+            em.Phone = tb_U_Phone.Text;
+            em.Email = tb_U_Email.Text;
+            em.Address = tb_U_Address.Text;
+
+            tb_U_Name.Visibility = Visibility.Hidden;
+            tb_U_Phone.Visibility = Visibility.Hidden;
+            tb_U_Email.Visibility = Visibility.Hidden;
+            tb_U_Address.Visibility = Visibility.Hidden;
+            tbl_U_Name.Visibility = Visibility.Hidden;
+            tbl_U_Phone.Visibility = Visibility.Hidden;
+            tbl_U_Email.Visibility = Visibility.Hidden;
+            tbl_U_Address.Visibility = Visibility.Hidden;
+
+            tb_A_Name.Text = "";
+            tb_U_Phone.Text = "";
+            tb_U_Email.Text = "";
+            tb_U_Address.Text = "";
+
+            db.SaveChanges();
+            UpdateProgram();
         }
 
         public List<EmployeesTBL> getEmployees()
@@ -81,14 +112,13 @@ namespace SivanArazi_RecordStore
         public void UpdateProgram()
         {
             dg_Employees.ItemsSource = getEmployees();
-            cb_DelEmployees.ItemsSource = getEmployeesIdsAndNames();
-            cb_UpEmployees.ItemsSource = getEmployeesIdsAndNames();
+            cb_D_Employees.ItemsSource = getEmployeesIdsAndNames();
+            cb_U_Employees.ItemsSource = getEmployeesIdsAndNames();
         }
 
-        private void Exit(object sender, RoutedEventArgs e)
+        private void BackToMenu(object sender, RoutedEventArgs e)
         {
-            MainWindow w = new MainWindow();
-            w.Show();
+            this.m.Show();
             this.Close();
         }
     }

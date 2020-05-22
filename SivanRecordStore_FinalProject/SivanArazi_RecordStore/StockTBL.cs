@@ -15,10 +15,9 @@ namespace SivanArazi_RecordStore
     public partial class StockTBL
     {
         public int Id { get; set; }
-        public Nullable<int> Album { get; set; }
-        public Nullable<int> Type { get; set; }
-        public Nullable<int> Amount { get; set; }
+        public int Product { get; set; }
+        public int Amount { get; set; }
     
-        public virtual AlbumTBL AlbumTBL { get; set; }
+        public virtual ProductsTBL ProductsTBL { get; set; }
     }
 }

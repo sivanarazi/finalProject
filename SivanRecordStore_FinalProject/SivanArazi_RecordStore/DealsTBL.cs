@@ -23,11 +23,10 @@ namespace SivanArazi_RecordStore
         public int Id { get; set; }
         public int Customer { get; set; }
         public int Employee { get; set; }
-        public int Cost { get; set; }
-        public int Album { get; set; }
+        public int Details { get; set; }
     
-        public virtual AlbumTBL AlbumTBL { get; set; }
-        public virtual CustomerTBL CustomerTBL { get; set; }
+        public virtual CustomersTBL CustomersTBL { get; set; }
+        public virtual DealsDetailsTBL DealsDetailsTBL { get; set; }
         public virtual EmployeesTBL EmployeesTBL { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ShippingTBL> ShippingTBL { get; set; }

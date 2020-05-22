@@ -13,10 +13,10 @@
             </TabItem>
             <TabItem Header="Add">
                 <Grid>
-                    <TextBox x:Name = "tb_name"  HorizontalAlignment="Left" Height="25" Margin="140,70,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-                    <TextBox x:Name = "tb_phone" HorizontalAlignment="Left" Height="25" Margin="140,140,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-                    <TextBox x:Name = "tb_email" HorizontalAlignment="Left" Height="25" Margin="140,200,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-                    <TextBox x:Name = "tb_address" HorizontalAlignment="Left" Height="25" Margin="140,260,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+                    <TextBox x:Name="tb_A_Name"  HorizontalAlignment="Left" Height="25" Margin="140,70,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+                    <TextBox x:Name="tb_A_Phone" HorizontalAlignment="Left" Height="25" Margin="140,140,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+                    <TextBox x:Name="tb_A_Email" HorizontalAlignment="Left" Height="25" Margin="140,200,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+                    <TextBox x:Name="tb_A_Address" HorizontalAlignment="Left" Height="25" Margin="140,260,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
                     <TextBlock HorizontalAlignment="Left" Margin="50,70,0,0"  TextWrapping="Wrap" Text="Name:" VerticalAlignment="Top"/>
                     <TextBlock HorizontalAlignment="Left" Margin="50,140,0,0" TextWrapping="Wrap" Text="Phone:" VerticalAlignment="Top"/>
                     <TextBlock HorizontalAlignment="Left" Margin="50,200,0,0" TextWrapping="Wrap" Text="Email:" VerticalAlignment="Top"/>
@@ -26,27 +26,26 @@
             </TabItem>
             <TabItem Header="Delete">
                 <Grid>
-                    <ComboBox x:Name="cb_DelEmployees" Width="200" Height="25" />
+                    <ComboBox x:Name="cb_D_Employees" Width="200" Height="25" />
                     <Button Content="Delete" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="1,1,1,50" Width="75" Click="DeleteEmployee"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Update">
                 <Grid>
-                    <ComboBox x:Name="cb_UpEmployees" Width="200" Height="25" Margin="60,130,526,235" />
+                    <ComboBox x:Name="cb_U_Employees" Width="200" Height="25" Margin="60,130,526,235" />
                     <Button Content="choose" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="127,0,584,133" Width="75" Click="UpdateChooseEmployee"/>
-                    <TextBlock HorizontalAlignment="Left" Margin="400,70,0,0"  TextWrapping="Wrap" Text="Name:" VerticalAlignment="Top"/>
-                    <TextBlock HorizontalAlignment="Left" Margin="400,140,0,0" TextWrapping="Wrap" Text="Phone:" VerticalAlignment="Top"/>
-                    <TextBlock HorizontalAlignment="Left" Margin="400,200,0,0" TextWrapping="Wrap" Text="Email:" VerticalAlignment="Top"/>
-                    <TextBlock HorizontalAlignment="Left" Margin="400,260,0,0" TextWrapping="Wrap" Text="Address:" VerticalAlignment="Top"/>
-                    <TextBox HorizontalAlignment="Left" Height="25" Margin="500,70,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-                    <TextBox HorizontalAlignment="Left" Height="25" Margin="500,140,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-                    <TextBox HorizontalAlignment="Left" Height="25" Margin="500,200,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-                    <TextBox HorizontalAlignment="Left" Height="25" Margin="500,260,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+                    <TextBlock x:Name="tbl_U_Name"  HorizontalAlignment="Left" Margin="400,70,0,0"  TextWrapping="Wrap" Text="Name:" VerticalAlignment="Top" Visibility="Hidden"/>
+                    <TextBlock x:Name="tbl_U_Phone" HorizontalAlignment="Left" Margin="400,140,0,0" TextWrapping="Wrap" Text="Phone:" VerticalAlignment="Top" Visibility="Hidden"/>
+                    <TextBlock x:Name="tbl_U_Email" HorizontalAlignment="Left" Margin="400,200,0,0" TextWrapping="Wrap" Text="Email:" VerticalAlignment="Top" Visibility="Hidden"/>
+                    <TextBlock x:Name="tbl_U_Address" HorizontalAlignment="Left" Margin="400,260,0,0" TextWrapping="Wrap" Text="Address:" VerticalAlignment="Top" Visibility="Hidden"/>
+                    <TextBox x:Name="tb_U_Name" HorizontalAlignment="Left" Height="25" Margin="500,70,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Visibility="Hidden"/>
+                    <TextBox x:Name="tb_U_Phone" HorizontalAlignment="Left" Height="25" Margin="500,140,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Visibility="Hidden"/>
+                    <TextBox x:Name="tb_U_Email" HorizontalAlignment="Left" Height="25" Margin="500,200,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Visibility="Hidden"/>
+                    <TextBox x:Name="tb_U_Address" HorizontalAlignment="Left" Height="25" Margin="500,260,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Visibility="Hidden"/>
                     <Button Content="Update" HorizontalAlignment="Left" Margin="650,350,0,0" VerticalAlignment="Top" Width="75" Click="UpdateEmployee"/>
                 </Grid>
             </TabItem>
         </TabControl>
-
-
+        <Button Content="Back to Menu" HorizontalAlignment="Right" VerticalAlignment="Top" Width="90" Height="22" Click="BackToMenu"/>
     </Grid>
 </Window>

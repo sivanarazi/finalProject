@@ -28,23 +28,23 @@ namespace SivanArazi_RecordStore
 
         private void GoToEmployeesWin(object sender, RoutedEventArgs e)
         {
-            EmployeesWin w = new EmployeesWin();
+            EmployeesWin w = new EmployeesWin(this);
             w.Show();
-            this.Close();
+            this.Hide();
         }
 
         private void GoToCoustomersWin(object sender, RoutedEventArgs e)
         {
-            CoustomersWin w = new CoustomersWin();
+            CoustomersWin w = new CoustomersWin(this);
             w.Show();
-            this.Close();
+            this.Hide();
         }
 
         private void GoToStockWin(object sender, RoutedEventArgs e)
         {
-            StockWin w = new StockWin();
+            StockWin w = new StockWin(this);
             w.Show();
-            this.Close();
+            this.Hide();
         }
         
         private void GoToDealsWin(object sender, RoutedEventArgs e)

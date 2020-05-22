@@ -17,15 +17,10 @@ namespace SivanArazi_RecordStore
         public int Id { get; set; }
         public int Supplier { get; set; }
         public int Employee { get; set; }
-        public int Month { get; set; }
-        public int Year { get; set; }
-        public int Cost { get; set; }
-        public int Album { get; set; }
-        public int Type { get; set; }
-        public int Amount { get; set; }
+        public int Details { get; set; }
     
-        public virtual AlbumTBL AlbumTBL { get; set; }
         public virtual EmployeesTBL EmployeesTBL { get; set; }
-        public virtual SupplierTBL SupplierTBL { get; set; }
+        public virtual OrdersFromSuppliersDetailsTBL OrdersFromSuppliersDetailsTBL { get; set; }
+        public virtual SuppliersTBL SuppliersTBL { get; set; }
     }
 }

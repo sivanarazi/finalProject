@@ -17,8 +17,8 @@ namespace SivanArazi_RecordStore
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public EmployeesTBL()
         {
-            this.CurrentExpensesTBL = new HashSet<CurrentExpensesTBL>();
             this.DealsTBL = new HashSet<DealsTBL>();
+            this.ExpensesTBL = new HashSet<ExpensesTBL>();
             this.OrdersFromSuppliersTBL = new HashSet<OrdersFromSuppliersTBL>();
         }
     
@@ -29,9 +29,9 @@ namespace SivanArazi_RecordStore
         public string Address { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CurrentExpensesTBL> CurrentExpensesTBL { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DealsTBL> DealsTBL { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ExpensesTBL> ExpensesTBL { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OrdersFromSuppliersTBL> OrdersFromSuppliersTBL { get; set; }
     }

@@ -20,9 +20,11 @@ namespace SivanArazi_RecordStore
     public partial class StockWin : Window
     {
         DataBaseEntities db = new DataBaseEntities();
-        public StockWin()
+        private MainWindow m;
+        public StockWin(MainWindow m)
         {
             InitializeComponent();
+            this.m = m;
             ShowStockInfo();
         }
 
@@ -33,8 +35,7 @@ namespace SivanArazi_RecordStore
 
         private void Exit(object sender, RoutedEventArgs e)
         {
-            MainWindow w = new MainWindow();
-            w.Show();
+            this.m.Show();
             this.Close();
         }
     }

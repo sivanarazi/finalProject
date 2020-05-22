@@ -79,13 +79,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="AlbumTBL.cs">
+    <Compile Include="AlbumsTBL.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="CurrentExpensesTBL.cs">
+    <Compile Include="CustomersTBL.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="CustomerTBL.cs">
+    <Compile Include="DealsDetailsTBL.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="DealsTBL.cs">
@@ -94,7 +94,16 @@
     <Compile Include="EmployeesTBL.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="ExpensesTBL.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OrdersFromSuppliersDetailsTBL.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="OrdersFromSuppliersTBL.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProductsTBL.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="ShippingTBL.cs">
@@ -106,14 +115,10 @@
     <Compile Include="StockWin.xaml.cs">
       <DependentUpon>StockWin.xaml</DependentUpon>
     </Compile>
-    <Compile Include="SupplierTBL.cs">
+    <Compile Include="SuppliersTBL.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Page Include="AddCoustomerWin.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="CoustomersWin.xaml">
+    <Page Include="CustomersWin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -125,15 +130,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="AddCoustomerWin.xaml.cs">
-      <DependentUpon>AddCoustomerWin.xaml</DependentUpon>
-    </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="CoustomersWin.xaml.cs">
-      <DependentUpon>CoustomersWin.xaml</DependentUpon>
+    <Compile Include="CustomersWin.xaml.cs">
+      <DependentUpon>CustomersWin.xaml</DependentUpon>
     </Compile>
     <Compile Include="EmployeesWin.xaml.cs">
       <DependentUpon>EmployeesWin.xaml</DependentUpon>
