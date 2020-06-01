@@ -33,9 +33,9 @@ namespace SivanArazi_RecordStore
             this.Hide();
         }
 
-        private void GoToCoustomersWin(object sender, RoutedEventArgs e)
+        private void GoToCustomersWin(object sender, RoutedEventArgs e)
         {
-            CoustomersWin w = new CoustomersWin(this);
+            CustomersWin w = new CustomersWin(this);
             w.Show();
             this.Hide();
         }
@@ -46,25 +46,40 @@ namespace SivanArazi_RecordStore
             w.Show();
             this.Hide();
         }
-        
-        private void GoToDealsWin(object sender, RoutedEventArgs e)
-        {
-
-        }
 
         private void GoToSuppliersWin(object sender, RoutedEventArgs e)
         {
-
+            SuppliersWin w = new SuppliersWin(this);
+            w.Show();
+            this.Hide();
         }
 
         private void GoToAlbusWin(object sender, RoutedEventArgs e)
         {
-
+            AlbumsWin w = new AlbumsWin(this);
+            w.Show();
+            this.Hide();
         }
 
         private void GoToExpensesWin(object sender, RoutedEventArgs e)
         {
+            ExpensesWin w = new ExpensesWin(this);
+            w.Show();
+            this.Hide();
+        }
 
+        private void GoToOrdersFromSuppliersWin(object sender, RoutedEventArgs e)
+        {
+            OrdersFromSuppliersWin w = new OrdersFromSuppliersWin(this);
+            w.Show();
+            this.Hide();
+        }
+
+        private void GoToDealsWin(object sender, RoutedEventArgs e)
+        {
+            DealsWin w = new DealsWin(this);
+            w.Show();
+            this.Hide();
         }
     }
 }

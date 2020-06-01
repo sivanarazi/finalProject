@@ -1,0 +1,73 @@
+﻿<Window x:Class="SivanArazi_RecordStore.DealsWin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SivanArazi_RecordStore"
+        mc:Ignorable="d"
+        Title="DealsWin" Height="450" Width="800" Background="#DA7808">
+    <Grid>
+        <TabControl HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <TabItem Header="View">
+                <DataGrid x:Name="dg_Deals" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+            </TabItem>
+            <TabItem Header="Add">
+                <Grid>
+                    <ComboBox x:Name="cb_A_Album"  HorizontalAlignment="Left" Height="25" Margin="140,70,0,0" IsEditable="True" Text="" VerticalAlignment="Top" Width="120"/>
+                    <TextBox x:Name="tb_A_Year" HorizontalAlignment="Left" Height="25" Margin="140,140,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="50"/>
+                    <TextBox x:Name="tb_A_Month" HorizontalAlignment="Left" Height="25" Margin="310,140,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="50"/>
+                    <TextBox x:Name="tb_A_Day" HorizontalAlignment="Left" Height="25" Margin="480,140,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="50"/>
+                    <ComboBox x:Name="cb_A_Type" HorizontalAlignment="Left" Height="25" Margin="390,70,0,0" IsEditable="True" Text="" VerticalAlignment="Top" Width="120"/>
+                    <TextBox x:Name="tb_A_Amount" HorizontalAlignment="Left" Height="25" Margin="140,200,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+                    <TextBox x:Name="tb_A_Cost" HorizontalAlignment="Left" Height="25" Margin="140,260,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+                    <ComboBox x:Name="cb_A_Employee" HorizontalAlignment="Left" Height="25" Margin="140,320,0,0" Text="" VerticalAlignment="Top" Width="120" IsEditable="True"/>
+                    <ComboBox x:Name="cb_A_Customer" HorizontalAlignment="Left" Height="25" Margin="390,320,0,0" Text="" VerticalAlignment="Top" Width="120" IsEditable="True"/>
+                    <TextBox x:Name="tb_A_Discount" HorizontalAlignment="Left" Height="25" Margin="390,260,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="50,70,0,0" TextWrapping="Wrap" Text="Album:" VerticalAlignment="Top"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="50,140,0,0" TextWrapping="Wrap" Text="Year:" VerticalAlignment="Top"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="390,140,0,0" TextWrapping="Wrap" Text="Day:" VerticalAlignment="Top"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="220,140,0,0" TextWrapping="Wrap" Text="Month:" VerticalAlignment="Top"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="300,70,0,0" TextWrapping="Wrap" Text="Type:" VerticalAlignment="Top"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="50,200,0,0" TextWrapping="Wrap" Text="Amount:" VerticalAlignment="Top"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="50,260,0,0" TextWrapping="Wrap" Text="Cost:" VerticalAlignment="Top"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="50,320,0,0" TextWrapping="Wrap" Text="Employee:" VerticalAlignment="Top"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="300,320,0,0" TextWrapping="Wrap" Text="Customer:" VerticalAlignment="Top"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="300,260,0,0" TextWrapping="Wrap" Text="Discount:" VerticalAlignment="Top"/>
+                    <Button Content="Add" HorizontalAlignment="Left" Margin="550,350,0,0" VerticalAlignment="Top" Width="75" Click="AddDeal"/>
+                </Grid>
+            </TabItem>
+            <!--<TabItem Header="Delete">
+                <Grid>
+                    <ComboBox x:Name="cb_D_Deals" Width="200" Height="25" />
+                    <Button Content="Delete" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="1,1,1,50" Width="75" Click="DeleteDeal"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Update">
+                <Grid>
+                    <ComboBox x:Name="cb_U_Deals" Width="200" Height="25" Margin="60,130,526,235" />
+                    <Button Content="choose" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="127,0,584,133" Width="75" Click="UpdateChooseDeal"/>
+                    <TextBlock x:Name="tbl_U_Album"  HorizontalAlignment="Left" Margin="300,70,0,0" TextWrapping="Wrap" Text="Album:" VerticalAlignment="Top" Visibility="Hidden"/>
+                    <TextBlock x:Name="tbl_U_Year" HorizontalAlignment="Left" Margin="300,140,0,0" TextWrapping="Wrap" Text="Year:" VerticalAlignment="Top" Visibility="Hidden"/>
+                    <TextBlock x:Name="tbl_U_Type" HorizontalAlignment="Left" Margin="550,70,0,0" TextWrapping="Wrap" Text="Type:" VerticalAlignment="Top" Visibility="Hidden"/>
+                    <TextBlock x:Name="tbl_U_Month" HorizontalAlignment="Left" Margin="420,140,0,0" TextWrapping="Wrap" Text="Month:" VerticalAlignment="Top" Visibility="Hidden"/>
+                    <TextBlock x:Name="tbl_U_Day" HorizontalAlignment="Left" Margin="540,140,0,0" TextWrapping="Wrap" Text="Day:" VerticalAlignment="Top" Visibility="Hidden"/>
+                    <TextBlock x:Name="tbl_U_Amount" HorizontalAlignment="Left" Margin="300,200,0,0" TextWrapping="Wrap" Text="Amount:" VerticalAlignment="Top" Visibility="Hidden"/>
+                    <TextBlock x:Name="tbl_U_Cost" HorizontalAlignment="Left" Margin="300,260,0,0" TextWrapping="Wrap" Text="Cost:" VerticalAlignment="Top" Visibility="Hidden"/>
+                    <TextBlock x:Name="tbl_U_Employee" HorizontalAlignment="Left" Margin="300,320,0,0" TextWrapping="Wrap" Text="Employee:" VerticalAlignment="Top" Visibility="Hidden"/>
+                    <TextBlock x:Name="tbl_U_Customer" HorizontalAlignment="Left" Margin="550,320,0,0" TextWrapping="Wrap" Text="Customer:" VerticalAlignment="Top" Visibility="Hidden"/>
+                    <ComboBox x:Name="cb_U_Album" HorizontalAlignment="Left" Height="25" Margin="400,70,0,0" IsEditable="True" Text="" VerticalAlignment="Top" Width="120" Visibility="Hidden"/>
+                    <ComboBox x:Name="cb_U_Type" HorizontalAlignment="Left" Height="25" Margin="600,70,0,0" IsEditable="True" Text="" VerticalAlignment="Top" Width="120" Visibility="Hidden"/>
+                    <TextBox x:Name="tb_U_Year" HorizontalAlignment="Left" Height="25" Margin="350,140,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="50" Visibility="Hidden"/>
+                    <TextBox x:Name="tb_U_Month" HorizontalAlignment="Left" Height="25" Margin="470,140,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="50" Visibility="Hidden"/>
+                    <TextBox x:Name="tb_U_Day" HorizontalAlignment="Left" Height="25" Margin="590,140,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="50" Visibility="Hidden"/>
+                    <TextBox x:Name="tb_U_Amount" HorizontalAlignment="Left" Height="25" Margin="400,200,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Visibility="Hidden"/>
+                    <TextBox x:Name="tb_U_Cost" HorizontalAlignment="Left" Height="25" Margin="400,260,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Visibility="Hidden"/>
+                    <ComboBox x:Name="cb_U_Employee" HorizontalAlignment="Left" Margin="400,320,0,0" Text="" VerticalAlignment="Top" Width="120" IsEditable="True" Visibility="Hidden"/>
+                    <ComboBox x:Name="cb_U_Customer" HorizontalAlignment="Left" Margin="630,320,0,0" Text="" VerticalAlignment="Top" Width="120" IsEditable="True" Visibility="Hidden"/>
+                    <Button x:Name="b_U" Content="Update" HorizontalAlignment="Left" Margin="690,360,0,0" VerticalAlignment="Top" Width="75" Click="UpdateDeal" Visibility="Hidden"/>
+                </Grid>
+            </TabItem>-->
+        </TabControl>
+        <Button Content="Back to Menu" HorizontalAlignment="Right" VerticalAlignment="Top" Width="90" Height="22" Click="BackToMenu"/>
+    </Grid>
+</Window>

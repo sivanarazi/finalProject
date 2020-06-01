@@ -1,15 +1,15 @@
-﻿<Window x:Class="SivanArazi_RecordStore.CoustomersWin"
+﻿<Window x:Class="SivanArazi_RecordStore.CustomersWin"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SivanArazi_RecordStore"
         mc:Ignorable="d"
-        Title="CustomersWin" Height="450" Width="800"  Background="#DA7808">
+        Title="CustomersWin" Height="450" Width="800" Background="#DA7808">
     <Grid>
         <TabControl HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
             <TabItem Header="View">
-                <DataGrid x:Name="dg_Customers" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch"/>
+                <DataGrid x:Name="dg_Customers" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
             </TabItem>
             <TabItem Header="Add">
                 <Grid>

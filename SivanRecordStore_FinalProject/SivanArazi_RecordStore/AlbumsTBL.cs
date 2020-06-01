@@ -17,7 +17,9 @@ namespace SivanArazi_RecordStore
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public AlbumsTBL()
         {
-            this.ProductsTBL = new HashSet<ProductsTBL>();
+            this.DealsDetailsTBL = new HashSet<DealsDetailsTBL>();
+            this.OrdersFromSuppliersDetailsTBL = new HashSet<OrdersFromSuppliersDetailsTBL>();
+            this.StockTBL = new HashSet<StockTBL>();
         }
     
         public int Id { get; set; }
@@ -28,6 +30,10 @@ namespace SivanArazi_RecordStore
         public byte[] Picture { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ProductsTBL> ProductsTBL { get; set; }
+        public virtual ICollection<DealsDetailsTBL> DealsDetailsTBL { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<OrdersFromSuppliersDetailsTBL> OrdersFromSuppliersDetailsTBL { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<StockTBL> StockTBL { get; set; }
     }
 }

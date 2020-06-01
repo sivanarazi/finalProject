@@ -14,12 +14,6 @@ namespace SivanArazi_RecordStore
     
     public partial class DealsTBL
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public DealsTBL()
-        {
-            this.ShippingTBL = new HashSet<ShippingTBL>();
-        }
-    
         public int Id { get; set; }
         public int Customer { get; set; }
         public int Employee { get; set; }
@@ -28,7 +22,5 @@ namespace SivanArazi_RecordStore
         public virtual CustomersTBL CustomersTBL { get; set; }
         public virtual DealsDetailsTBL DealsDetailsTBL { get; set; }
         public virtual EmployeesTBL EmployeesTBL { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ShippingTBL> ShippingTBL { get; set; }
     }
 }

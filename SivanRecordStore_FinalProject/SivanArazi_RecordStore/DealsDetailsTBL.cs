@@ -21,14 +21,15 @@ namespace SivanArazi_RecordStore
         }
     
         public int Id { get; set; }
-        public int Product { get; set; }
+        public int Album { get; set; }
+        public int Type { get; set; }
         public int Amount { get; set; }
         public System.DateTime Date { get; set; }
         public int Cost { get; set; }
         public Nullable<int> Discount { get; set; }
     
+        public virtual AlbumsTBL AlbumsTBL { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DealsTBL> DealsTBL { get; set; }
-        public virtual ProductsTBL ProductsTBL { get; set; }
     }
 }

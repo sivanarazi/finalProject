@@ -66,7 +66,7 @@ namespace SivanArazi_RecordStore
             tbl_U_Email.Visibility = Visibility.Visible;
             tbl_U_Address.Visibility = Visibility.Visible;
 
-            tb_A_Name.Text = "";
+            tb_U_Name.Text = "";
             tb_U_Phone.Text = "";
             tb_U_Email.Text = "";
             tb_U_Address.Text = "";
@@ -90,7 +90,7 @@ namespace SivanArazi_RecordStore
             tbl_U_Email.Visibility = Visibility.Hidden;
             tbl_U_Address.Visibility = Visibility.Hidden;
 
-            tb_A_Name.Text = "";
+            tb_U_Name.Text = "";
             tb_U_Phone.Text = "";
             tb_U_Email.Text = "";
             tb_U_Address.Text = "";

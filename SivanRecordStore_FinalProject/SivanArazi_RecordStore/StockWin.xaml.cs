@@ -25,18 +25,23 @@ namespace SivanArazi_RecordStore
         {
             InitializeComponent();
             this.m = m;
-            ShowStockInfo();
+            UpdateProgram();
         }
 
-        private void ShowStockInfo()
-        {
-            
-        }
-
-        private void Exit(object sender, RoutedEventArgs e)
+        private void BackToMenu(object sender, RoutedEventArgs e)
         {
             this.m.Show();
             this.Close();
+        }
+
+        public List<StockTBL> getStock()
+        {
+            return db.StockTBL.ToList<StockTBL>();
+        }
+
+        public void UpdateProgram()
+        {
+            dg_Stock.ItemsSource = getStock();
         }
     }
 }

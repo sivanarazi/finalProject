@@ -82,8 +82,14 @@
     <Compile Include="AlbumsTBL.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="AlbumsWin.xaml.cs">
+      <DependentUpon>AlbumsWin.xaml</DependentUpon>
+    </Compile>
     <Compile Include="CustomersTBL.cs">
       <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CustomersWin.xaml.cs">
+      <DependentUpon>CustomersWin.xaml</DependentUpon>
     </Compile>
     <Compile Include="DealsDetailsTBL.cs">
       <DependentUpon>Model.tt</DependentUpon>
@@ -91,11 +97,17 @@
     <Compile Include="DealsTBL.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="DealsWin.xaml.cs">
+      <DependentUpon>DealsWin.xaml</DependentUpon>
+    </Compile>
     <Compile Include="EmployeesTBL.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="ExpensesTBL.cs">
       <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ExpensesWin.xaml.cs">
+      <DependentUpon>ExpensesWin.xaml</DependentUpon>
     </Compile>
     <Compile Include="OrdersFromSuppliersDetailsTBL.cs">
       <DependentUpon>Model.tt</DependentUpon>
@@ -103,11 +115,8 @@
     <Compile Include="OrdersFromSuppliersTBL.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="ProductsTBL.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ShippingTBL.cs">
-      <DependentUpon>Model.tt</DependentUpon>
+    <Compile Include="OrdersFromSuppliersWin.xaml.cs">
+      <DependentUpon>OrdersFromSuppliersWin.xaml</DependentUpon>
     </Compile>
     <Compile Include="StockTBL.cs">
       <DependentUpon>Model.tt</DependentUpon>
@@ -118,11 +127,26 @@
     <Compile Include="SuppliersTBL.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="SuppliersWin.xaml.cs">
+      <DependentUpon>SuppliersWin.xaml</DependentUpon>
+    </Compile>
+    <Page Include="AlbumsWin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="CustomersWin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="DealsWin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="EmployeesWin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ExpensesWin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -134,9 +158,6 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="CustomersWin.xaml.cs">
-      <DependentUpon>CustomersWin.xaml</DependentUpon>
-    </Compile>
     <Compile Include="EmployeesWin.xaml.cs">
       <DependentUpon>EmployeesWin.xaml</DependentUpon>
     </Compile>
@@ -144,7 +165,15 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="OrdersFromSuppliersWin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="StockWin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SuppliersWin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -196,7 +225,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Pictures\MusicBackground.jpg">

@@ -9,7 +9,7 @@
     <Grid>
         <TabControl HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
             <TabItem Header="View">
-                <DataGrid x:Name="dg_Employees" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch"/>
+                <DataGrid x:Name="dg_Employees" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
             </TabItem>
             <TabItem Header="Add">
                 <Grid>
