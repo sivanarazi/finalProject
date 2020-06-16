@@ -27,7 +27,7 @@ namespace SivanArazi_RecordStore
         public string Artist { get; set; }
         public int SongsNumber { get; set; }
         public int Year { get; set; }
-        public byte[] Picture { get; set; }
+        public int Price { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DealsDetailsTBL> DealsDetailsTBL { get; set; }

@@ -19,6 +19,11 @@ namespace SivanArazi_RecordStore
     /// </summary>
     public partial class StockWin : Window
     {
+        //the stock shipts when there is a new deal - products deleted,
+        //or when there is ane order from supplier - add products.
+        //so there is no option for user to edit or update stock.
+        //only view
+
         DataBaseEntities db = new DataBaseEntities();
         private MainWindow m;
         public StockWin(MainWindow m)

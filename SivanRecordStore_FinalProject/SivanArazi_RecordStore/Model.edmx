@@ -14,7 +14,7 @@
           <Property Name="Artist" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="SongsNumber" Type="int" Nullable="false" />
           <Property Name="Year" Type="int" Nullable="false" />
-          <Property Name="Picture" Type="image" />
+          <Property Name="Price" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="CustomersTBL">
           <Key>
@@ -143,7 +143,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_DealsDetails_Album">
+        <Association Name="FK_DealsDetails_Albums">
           <End Role="AlbumsTBL" Type="Self.AlbumsTBL" Multiplicity="1" />
           <End Role="DealsDetailsTBL" Type="Self.DealsDetailsTBL" Multiplicity="*" />
           <ReferentialConstraint>
@@ -203,7 +203,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_OrdersFromSuppliersDetails_Album">
+        <Association Name="FK_OrdersFromSuppliersDetails_Albums">
           <End Role="AlbumsTBL" Type="Self.AlbumsTBL" Multiplicity="1" />
           <End Role="OrdersFromSuppliersDetailsTBL" Type="Self.OrdersFromSuppliersDetailsTBL" Multiplicity="*" />
           <ReferentialConstraint>
@@ -215,7 +215,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Stock_Album">
+        <Association Name="FK_Stock_Albums">
           <End Role="AlbumsTBL" Type="Self.AlbumsTBL" Multiplicity="1" />
           <End Role="StockTBL" Type="Self.StockTBL" Multiplicity="*" />
           <ReferentialConstraint>
@@ -250,7 +250,7 @@
             <End Role="EmployeesTBL" EntitySet="EmployeesTBL" />
             <End Role="DealsTBL" EntitySet="DealsTBL" />
           </AssociationSet>
-          <AssociationSet Name="FK_DealsDetails_Album" Association="Self.FK_DealsDetails_Album">
+          <AssociationSet Name="FK_DealsDetails_Albums" Association="Self.FK_DealsDetails_Albums">
             <End Role="AlbumsTBL" EntitySet="AlbumsTBL" />
             <End Role="DealsDetailsTBL" EntitySet="DealsDetailsTBL" />
           </AssociationSet>
@@ -270,11 +270,11 @@
             <End Role="SuppliersTBL" EntitySet="SuppliersTBL" />
             <End Role="OrdersFromSuppliersTBL" EntitySet="OrdersFromSuppliersTBL" />
           </AssociationSet>
-          <AssociationSet Name="FK_OrdersFromSuppliersDetails_Album" Association="Self.FK_OrdersFromSuppliersDetails_Album">
+          <AssociationSet Name="FK_OrdersFromSuppliersDetails_Albums" Association="Self.FK_OrdersFromSuppliersDetails_Albums">
             <End Role="AlbumsTBL" EntitySet="AlbumsTBL" />
             <End Role="OrdersFromSuppliersDetailsTBL" EntitySet="OrdersFromSuppliersDetailsTBL" />
           </AssociationSet>
-          <AssociationSet Name="FK_Stock_Album" Association="Self.FK_Stock_Album">
+          <AssociationSet Name="FK_Stock_Albums" Association="Self.FK_Stock_Albums">
             <End Role="AlbumsTBL" EntitySet="AlbumsTBL" />
             <End Role="StockTBL" EntitySet="StockTBL" />
           </AssociationSet>
@@ -294,15 +294,15 @@
           <EntitySet Name="OrdersFromSuppliersTBL" EntityType="DataBaseModel.OrdersFromSuppliersTBL" />
           <EntitySet Name="StockTBL" EntityType="DataBaseModel.StockTBL" />
           <EntitySet Name="SuppliersTBL" EntityType="DataBaseModel.SuppliersTBL" />
-          <AssociationSet Name="FK_DealsDetails_Album" Association="DataBaseModel.FK_DealsDetails_Album">
+          <AssociationSet Name="FK_DealsDetails_Albums" Association="DataBaseModel.FK_DealsDetails_Albums">
             <End Role="AlbumsTBL" EntitySet="AlbumsTBL" />
             <End Role="DealsDetailsTBL" EntitySet="DealsDetailsTBL" />
           </AssociationSet>
-          <AssociationSet Name="FK_OrdersFromSuppliersDetails_Album" Association="DataBaseModel.FK_OrdersFromSuppliersDetails_Album">
+          <AssociationSet Name="FK_OrdersFromSuppliersDetails_Albums" Association="DataBaseModel.FK_OrdersFromSuppliersDetails_Albums">
             <End Role="AlbumsTBL" EntitySet="AlbumsTBL" />
             <End Role="OrdersFromSuppliersDetailsTBL" EntitySet="OrdersFromSuppliersDetailsTBL" />
           </AssociationSet>
-          <AssociationSet Name="FK_Stock_Album" Association="DataBaseModel.FK_Stock_Album">
+          <AssociationSet Name="FK_Stock_Albums" Association="DataBaseModel.FK_Stock_Albums">
             <End Role="AlbumsTBL" EntitySet="AlbumsTBL" />
             <End Role="StockTBL" EntitySet="StockTBL" />
           </AssociationSet>
@@ -344,10 +344,10 @@
           <Property Name="Artist" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="SongsNumber" Type="Int32" Nullable="false" />
           <Property Name="Year" Type="Int32" Nullable="false" />
-          <Property Name="Picture" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <NavigationProperty Name="DealsDetailsTBL" Relationship="DataBaseModel.FK_DealsDetails_Album" FromRole="AlbumsTBL" ToRole="DealsDetailsTBL" />
-          <NavigationProperty Name="OrdersFromSuppliersDetailsTBL" Relationship="DataBaseModel.FK_OrdersFromSuppliersDetails_Album" FromRole="AlbumsTBL" ToRole="OrdersFromSuppliersDetailsTBL" />
-          <NavigationProperty Name="StockTBL" Relationship="DataBaseModel.FK_Stock_Album" FromRole="AlbumsTBL" ToRole="StockTBL" />
+          <Property Name="Price" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="DealsDetailsTBL" Relationship="DataBaseModel.FK_DealsDetails_Albums" FromRole="AlbumsTBL" ToRole="DealsDetailsTBL" />
+          <NavigationProperty Name="OrdersFromSuppliersDetailsTBL" Relationship="DataBaseModel.FK_OrdersFromSuppliersDetails_Albums" FromRole="AlbumsTBL" ToRole="OrdersFromSuppliersDetailsTBL" />
+          <NavigationProperty Name="StockTBL" Relationship="DataBaseModel.FK_Stock_Albums" FromRole="AlbumsTBL" ToRole="StockTBL" />
         </EntityType>
         <EntityType Name="CustomersTBL">
           <Key>
@@ -371,7 +371,7 @@
           <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Cost" Type="Int32" Nullable="false" />
           <Property Name="Discount" Type="Int32" />
-          <NavigationProperty Name="AlbumsTBL" Relationship="DataBaseModel.FK_DealsDetails_Album" FromRole="DealsDetailsTBL" ToRole="AlbumsTBL" />
+          <NavigationProperty Name="AlbumsTBL" Relationship="DataBaseModel.FK_DealsDetails_Albums" FromRole="DealsDetailsTBL" ToRole="AlbumsTBL" />
           <NavigationProperty Name="DealsTBL" Relationship="DataBaseModel.FK_Deals_DealsDetails" FromRole="DealsDetailsTBL" ToRole="DealsTBL" />
         </EntityType>
         <EntityType Name="DealsTBL">
@@ -421,7 +421,7 @@
           <Property Name="Amount" Type="Int32" Nullable="false" />
           <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Cost" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="AlbumsTBL" Relationship="DataBaseModel.FK_OrdersFromSuppliersDetails_Album" FromRole="OrdersFromSuppliersDetailsTBL" ToRole="AlbumsTBL" />
+          <NavigationProperty Name="AlbumsTBL" Relationship="DataBaseModel.FK_OrdersFromSuppliersDetails_Albums" FromRole="OrdersFromSuppliersDetailsTBL" ToRole="AlbumsTBL" />
           <NavigationProperty Name="OrdersFromSuppliersTBL" Relationship="DataBaseModel.FK_OrdersFromSuppliers_OrdersFromSuppliersDetails" FromRole="OrdersFromSuppliersDetailsTBL" ToRole="OrdersFromSuppliersTBL" />
         </EntityType>
         <EntityType Name="OrdersFromSuppliersTBL">
@@ -444,7 +444,7 @@
           <Property Name="Album" Type="Int32" Nullable="false" />
           <Property Name="Type" Type="Int32" Nullable="false" />
           <Property Name="Amount" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="AlbumsTBL" Relationship="DataBaseModel.FK_Stock_Album" FromRole="StockTBL" ToRole="AlbumsTBL" />
+          <NavigationProperty Name="AlbumsTBL" Relationship="DataBaseModel.FK_Stock_Albums" FromRole="StockTBL" ToRole="AlbumsTBL" />
         </EntityType>
         <EntityType Name="SuppliersTBL">
           <Key>
@@ -457,7 +457,7 @@
           <Property Name="Email" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="OrdersFromSuppliersTBL" Relationship="DataBaseModel.FK_OrdersFromSuppliers_Suppliers" FromRole="SuppliersTBL" ToRole="OrdersFromSuppliersTBL" />
         </EntityType>
-        <Association Name="FK_DealsDetails_Album">
+        <Association Name="FK_DealsDetails_Albums">
           <End Type="DataBaseModel.AlbumsTBL" Role="AlbumsTBL" Multiplicity="1" />
           <End Type="DataBaseModel.DealsDetailsTBL" Role="DealsDetailsTBL" Multiplicity="*" />
           <ReferentialConstraint>
@@ -469,7 +469,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_OrdersFromSuppliersDetails_Album">
+        <Association Name="FK_OrdersFromSuppliersDetails_Albums">
           <End Type="DataBaseModel.AlbumsTBL" Role="AlbumsTBL" Multiplicity="1" />
           <End Type="DataBaseModel.OrdersFromSuppliersDetailsTBL" Role="OrdersFromSuppliersDetailsTBL" Multiplicity="*" />
           <ReferentialConstraint>
@@ -481,7 +481,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Stock_Album">
+        <Association Name="FK_Stock_Albums">
           <End Type="DataBaseModel.AlbumsTBL" Role="AlbumsTBL" Multiplicity="1" />
           <End Type="DataBaseModel.StockTBL" Role="StockTBL" Multiplicity="*" />
           <ReferentialConstraint>
@@ -586,7 +586,7 @@
           <EntitySetMapping Name="AlbumsTBL">
             <EntityTypeMapping TypeName="DataBaseModel.AlbumsTBL">
               <MappingFragment StoreEntitySet="AlbumsTBL">
-                <ScalarProperty Name="Picture" ColumnName="Picture" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
                 <ScalarProperty Name="Year" ColumnName="Year" />
                 <ScalarProperty Name="SongsNumber" ColumnName="SongsNumber" />
                 <ScalarProperty Name="Artist" ColumnName="Artist" />

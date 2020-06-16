@@ -34,7 +34,7 @@
                     <Button Content="Add" HorizontalAlignment="Left" Margin="550,350,0,0" VerticalAlignment="Top" Width="75" Click="AddOrderFromSupplier"/>
                 </Grid>
             </TabItem>
-            <!--<TabItem Header="Delete">
+            <TabItem Header="Delete">
                 <Grid>
                     <ComboBox x:Name="cb_D_OrdersFromSuppliers" Width="200" Height="25" />
                     <Button Content="Delete" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="1,1,1,50" Width="75" Click="DeleteOrderFromSupplier"/>
@@ -64,7 +64,7 @@
                     <ComboBox x:Name="cb_U_Supplier" HorizontalAlignment="Left" Margin="630,320,0,0" Text="" VerticalAlignment="Top" Width="120" IsEditable="True" Visibility="Hidden"/>
                     <Button x:Name="b_U" Content="Update" HorizontalAlignment="Left" Margin="690,360,0,0" VerticalAlignment="Top" Width="75" Click="UpdateOrderFromSupplier" Visibility="Hidden"/>
                 </Grid>
-            </TabItem>-->
+            </TabItem>
         </TabControl>
         <Button Content="Back to Menu" HorizontalAlignment="Right" VerticalAlignment="Top" Width="90" Height="22" Click="BackToMenu"/>
     </Grid>

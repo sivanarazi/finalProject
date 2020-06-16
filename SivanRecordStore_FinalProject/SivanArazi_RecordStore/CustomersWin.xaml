@@ -42,7 +42,7 @@
                     <TextBox x:Name="tb_U_Phone" HorizontalAlignment="Left" Height="25" Margin="500,140,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Visibility="Hidden"/>
                     <TextBox x:Name="tb_U_Email" HorizontalAlignment="Left" Height="25" Margin="500,200,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Visibility="Hidden"/>
                     <TextBox x:Name="tb_U_Address" HorizontalAlignment="Left" Height="25" Margin="500,260,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Visibility="Hidden"/>
-                    <Button Content="Update" HorizontalAlignment="Left" Margin="650,350,0,0" VerticalAlignment="Top" Width="75" Click="UpdateCustomer"/>
+                    <Button x:Name="b_U" Content="Update" HorizontalAlignment="Left" Margin="650,350,0,0" VerticalAlignment="Top" Width="75" Click="UpdateCustomer" Visibility="Hidden"/>
                 </Grid>
             </TabItem>
         </TabControl>

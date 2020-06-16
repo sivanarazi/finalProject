@@ -30,74 +30,113 @@ namespace SivanArazi_RecordStore
 
         private void AddAlbum(object sender, RoutedEventArgs e)
         {
-            AlbumsTBL a = new AlbumsTBL
+            try
             {
-                Name = tb_A_Name.Text,
-                Artist = tb_A_Artist.Text,
-                SongsNumber = int.Parse(tb_A_SongsNumber.Text),
-                Year = int.Parse(tb_A_Year.Text),
-                Picture = null,
-            };
-            db.AlbumsTBL.Add(a);
-            db.SaveChanges();
-            UpdateProgram();
-            tb_A_Name.Text = "";
-            tb_A_Artist.Text = "";
-            tb_A_SongsNumber.Text = "";
-            tb_A_Year.Text = "";
-            UpdateProgram();
+                //create new Album object
+                AlbumsTBL a = new AlbumsTBL
+                {
+                    Name = tb_A_Name.Text,
+                    Artist = tb_A_Artist.Text,
+                    SongsNumber = int.Parse(tb_A_SongsNumber.Text),
+                    Year = int.Parse(tb_A_Year.Text),
+                    Price = int.Parse(tb_A_Price.Text),
+                };
+
+                db.AlbumsTBL.Add(a);
+
+                UpdateProgram();
+
+                //graphic set
+                tb_A_Name.Text = "";
+                tb_A_Artist.Text = "";
+                tb_A_SongsNumber.Text = "";
+                tb_A_Year.Text = "";
+                tb_A_Price.Text = "";
+            }
+            catch
+            {
+                ErrorWin w = new ErrorWin("Album adding fail. check text");
+                w.Show();
+            }
         }
 
         private void DeleteAlbum(object sender, RoutedEventArgs e)
         {
+            //locate the Album object using id
             int id = int.Parse((cb_D_Albums.Text).Remove((cb_D_Albums.Text).IndexOf(".")));
             db.AlbumsTBL.Remove(db.AlbumsTBL.Where(i => i.Id == id).First());
-            db.SaveChanges();
+
             UpdateProgram();
         }
 
         private void UpdateChooseAlbum(object sender, RoutedEventArgs e)
         {
+            //graphic set
             tb_U_Name.Visibility = Visibility.Visible;
             tb_U_Artist.Visibility = Visibility.Visible;
             tb_U_SongsNumber.Visibility = Visibility.Visible;
             tb_U_Year.Visibility = Visibility.Visible;
+            tb_U_Price.Visibility = Visibility.Visible;
             tbl_U_Name.Visibility = Visibility.Visible;
             tbl_U_Artist.Visibility = Visibility.Visible;
             tbl_U_SongsNumber.Visibility = Visibility.Visible;
             tbl_U_Year.Visibility = Visibility.Visible;
+            tbl_U_Price.Visibility = Visibility.Visible;
+            b_U.Visibility = Visibility.Visible;
 
-            tb_U_Name.Text = "";
-            tb_U_Artist.Text = "";
-            tb_U_SongsNumber.Text = "";
-            tb_U_Year.Text = "";
+            //locate the Album object using id
+            int id = int.Parse((cb_U_Albums.Text).Remove((cb_U_Albums.Text).IndexOf(".")));
+            AlbumsTBL cs = db.AlbumsTBL.Where(i => i.Id == id).First();
+
+            //write the current object variables
+            tb_U_Name.Text = cs.Name;
+            tb_U_Artist.Text = cs.Artist;
+            tb_U_SongsNumber.Text = cs.SongsNumber.ToString();
+            tb_U_Year.Text = cs.Year.ToString();
+            tb_U_Price.Text = cs.Price.ToString();
         }
 
         private void UpdateAlbum(object sender, RoutedEventArgs e)
         {
+            //locate the Album object using id
             int id = int.Parse((cb_U_Albums.Text).Remove((cb_U_Albums.Text).IndexOf(".")));
             AlbumsTBL cs = db.AlbumsTBL.Where(i => i.Id == id).First();
-            cs.Name = tb_U_Name.Text;
-            cs.Artist = tb_U_Artist.Text;
-            cs.SongsNumber = int.Parse(tb_U_SongsNumber.Text);
-            cs.Year = int.Parse(tb_U_Year.Text);
 
-            tb_U_Name.Visibility = Visibility.Hidden;
-            tb_U_Artist.Visibility = Visibility.Hidden;
-            tb_U_SongsNumber.Visibility = Visibility.Hidden;
-            tb_U_Year.Visibility = Visibility.Hidden;
-            tbl_U_Name.Visibility = Visibility.Hidden;
-            tbl_U_Artist.Visibility = Visibility.Hidden;
-            tbl_U_SongsNumber.Visibility = Visibility.Hidden;
-            tbl_U_Year.Visibility = Visibility.Hidden;
+            try
+            {
+                //update
+                cs.Name = tb_U_Name.Text;
+                cs.Artist = tb_U_Artist.Text;
+                cs.SongsNumber = int.Parse(tb_U_SongsNumber.Text);
+                cs.Year = int.Parse(tb_U_Year.Text);
+                cs.Price = int.Parse(tb_U_Price.Text);
 
-            tb_U_Name.Text = "";
-            tb_U_Artist.Text = "";
-            tb_U_SongsNumber.Text = "";
-            tb_U_Year.Text = "";
+                //graphic set
+                tb_U_Name.Visibility = Visibility.Hidden;
+                tb_U_Artist.Visibility = Visibility.Hidden;
+                tb_U_SongsNumber.Visibility = Visibility.Hidden;
+                tb_U_Year.Visibility = Visibility.Hidden;
+                tb_U_Price.Visibility = Visibility.Hidden;
+                tbl_U_Name.Visibility = Visibility.Hidden;
+                tbl_U_Artist.Visibility = Visibility.Hidden;
+                tbl_U_SongsNumber.Visibility = Visibility.Hidden;
+                tbl_U_Year.Visibility = Visibility.Hidden;
+                tbl_U_Price.Visibility = Visibility.Hidden;
+                b_U.Visibility = Visibility.Hidden;
 
-            db.SaveChanges();
-            UpdateProgram();
+                tb_U_Name.Text = "";
+                tb_U_Artist.Text = "";
+                tb_U_SongsNumber.Text = "";
+                tb_U_Year.Text = "";
+                tb_U_Price.Text = "";
+
+                UpdateProgram();
+            }
+            catch
+            {
+                ErrorWin w = new ErrorWin("update album fail. check text");
+                w.Show();
+            }
         }
 
         public List<AlbumsTBL> getAlbums()
@@ -110,8 +149,10 @@ namespace SivanArazi_RecordStore
             return db.AlbumsTBL.Select(dr => dr.Id + ". " + dr.Name).ToList();
         }
 
+        //updating db and evry wpf object that use db info
         public void UpdateProgram()
         {
+            db.SaveChanges();
             dg_Albums.ItemsSource = getAlbums();
             cb_D_Albums.ItemsSource = getAlbumsIdsAndNames();
             cb_U_Albums.ItemsSource = getAlbumsIdsAndNames();

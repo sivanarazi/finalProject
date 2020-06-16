@@ -4,20 +4,20 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="49af9910fc464af3bbbaefec5b2d8037" Name="Diagram1" ZoomLevel="58">
-        <EntityTypeShape EntityType="DataBaseModel.AlbumsTBL" Width="1.5" PointX="3.875" PointY="3.25" />
-        <EntityTypeShape EntityType="DataBaseModel.CustomersTBL" Width="1.5" PointX="6.375" PointY="9" />
-        <EntityTypeShape EntityType="DataBaseModel.DealsDetailsTBL" Width="1.5" PointX="3.875" PointY="6.5" />
-        <EntityTypeShape EntityType="DataBaseModel.DealsTBL" Width="1.5" PointX="6.5" PointY="6.125" />
-        <EntityTypeShape EntityType="DataBaseModel.EmployeesTBL" Width="1.5" PointX="9.125" PointY="6.375" />
-        <EntityTypeShape EntityType="DataBaseModel.ExpensesTBL" Width="1.5" PointX="12" PointY="6.625" />
-        <EntityTypeShape EntityType="DataBaseModel.OrdersFromSuppliersDetailsTBL" Width="1.5" PointX="6.5" PointY="3" />
-        <EntityTypeShape EntityType="DataBaseModel.OrdersFromSuppliersTBL" Width="1.5" PointX="8.875" PointY="3" />
-        <EntityTypeShape EntityType="DataBaseModel.StockTBL" Width="1.5" PointX="1" PointY="3.25" />
-        <EntityTypeShape EntityType="DataBaseModel.SuppliersTBL" Width="1.5" PointX="11.875" PointY="3.375" />
-        <AssociationConnector Association="DataBaseModel.FK_DealsDetails_Album" />
-        <AssociationConnector Association="DataBaseModel.FK_OrdersFromSuppliersDetails_Album" />
-        <AssociationConnector Association="DataBaseModel.FK_Stock_Album" />
+      <Diagram DiagramId="49af9910fc464af3bbbaefec5b2d8037" Name="Diagram1" ZoomLevel="52">
+        <EntityTypeShape EntityType="DataBaseModel.AlbumsTBL" Width="1.5" PointX="7.875" PointY="7.125" />
+        <EntityTypeShape EntityType="DataBaseModel.CustomersTBL" Width="1.5" PointX="2.375" PointY="10.75" />
+        <EntityTypeShape EntityType="DataBaseModel.DealsDetailsTBL" Width="1.5" PointX="5.25" PointY="6.875" />
+        <EntityTypeShape EntityType="DataBaseModel.DealsTBL" Width="1.5" PointX="5.375" PointY="10.375" />
+        <EntityTypeShape EntityType="DataBaseModel.EmployeesTBL" Width="1.5" PointX="7.875" PointY="10.375" />
+        <EntityTypeShape EntityType="DataBaseModel.ExpensesTBL" Width="1.5" PointX="7.875" PointY="13.875" />
+        <EntityTypeShape EntityType="DataBaseModel.OrdersFromSuppliersDetailsTBL" Width="1.5" PointX="10.5" PointY="7.125" />
+        <EntityTypeShape EntityType="DataBaseModel.OrdersFromSuppliersTBL" Width="1.5" PointX="10.5" PointY="10.375" />
+        <EntityTypeShape EntityType="DataBaseModel.StockTBL" Width="1.5" PointX="7.875" PointY="4.625" />
+        <EntityTypeShape EntityType="DataBaseModel.SuppliersTBL" Width="1.5" PointX="13.125" PointY="10.625" />
+        <AssociationConnector Association="DataBaseModel.FK_DealsDetails_Albums" />
+        <AssociationConnector Association="DataBaseModel.FK_OrdersFromSuppliersDetails_Albums" />
+        <AssociationConnector Association="DataBaseModel.FK_Stock_Albums" />
         <AssociationConnector Association="DataBaseModel.FK_Deals_Customers" />
         <AssociationConnector Association="DataBaseModel.FK_Deals_DealsDetails" />
         <AssociationConnector Association="DataBaseModel.FK_Deals_Employees" />

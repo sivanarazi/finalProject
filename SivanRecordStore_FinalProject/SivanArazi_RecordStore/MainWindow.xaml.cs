@@ -20,6 +20,7 @@ namespace SivanArazi_RecordStore
     /// </summary>
     public partial class MainWindow : Window
     {
+        //the main window contaun buttens that open every window responsible for spesific prosses in the project
         DataBaseEntities db = new DataBaseEntities();
         public MainWindow()
         {
@@ -78,6 +79,13 @@ namespace SivanArazi_RecordStore
         private void GoToDealsWin(object sender, RoutedEventArgs e)
         {
             DealsWin w = new DealsWin(this);
+            w.Show();
+            this.Hide();
+        }
+
+        private void GoToReportsWin(object sender, RoutedEventArgs e)
+        {
+            ReportsWin w = new ReportsWin(this);
             w.Show();
             this.Hide();
         }
